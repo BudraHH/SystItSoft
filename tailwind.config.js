@@ -1,94 +1,115 @@
 /** @type {import('tailwindcss').Config} */
-import { default as flattenColorPalette } from 'tailwindcss/lib/util/flattenColorPalette';
-import svgToDataUri from 'mini-svg-data-uri';
-
-function addVariablesForColors({ addBase, theme }) {
-  let allColors = flattenColorPalette(theme('colors'));
-  let newVars = Object.fromEntries(Object.entries(allColors).map(([key, val]) => [`--${key}`, val]));
-
-  addBase({
-    ':root': newVars,
-  });
-}
-
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      colors: {
-        lightColors: {
-          primary: "#0c314e", // Deep Navy Blue
-          secondary: "#19567c", // Medium Blue
-          accent: "#007BFF", // Electric Blue
-          accent2: "#87CEEB", // Sky Blue
-          tertiary1: "#9da6aa", // Charcoal Gray
-          tertiary2: "#b2bbbd", // Silver Gray
-          text1: "#a3becc", // Soft Gray Blue - For primary text
-          text2: "#a3becc", // Soft Gray Blue - Alternate text
-          text3: "#b5ddeb", // Light Sky Blue - For secondary text
-          neutral: "#FFFFFF", // White - For background or neutral spaces
-          dark: "#002B5C", // Dark Blue
+      backgroundImage: {
+        'radial-gradient': 'radial-gradient(var(--tw-gradient-stops))',
+      },
+      keyframes: {
+        shine: {
+          '0%': { 'background-position': '100%' },
+          '100%': { 'background-position': '-100%' },
         },
-        darkColors: {
-          darkBackground1: "#1a1a1a", // Gray-900
-          darkBackground2: "#2d2d2d", // Gray-800
-          darkBackground3: "#121212", // Darker shade for primary background
-          darkBackground4: "#181818", // Slightly lighter dark background for cards or sections
-
-          lightText1: "#d1d5db", // Gray-300
-          lightText2: "#9ca3af", // Gray-400
-          lightText3: "#e5e7eb", // Light Gray for muted texts
-          lightText4: "#f3f4f6", // Very light gray for subtle text
-
-          whiteTextHover: "#ffffff",
-
-          hoverBackground: "#333333", // Dark hover effect
-          hoverBackground2: "#444444", // Slightly lighter hover background
-
-          border: "#4b5563", // Gray-600
-          border2: "#6b7280", // Gray-500 for secondary borders
-
-          accent1: "#6200ea", // Purple for accents
-          accent2: "#03dac6", // Teal accent for buttons or highlights
-          accent3: "#ffb300", // Amber accent for call-to-action elements
-
-          buttonBackground: "#374151", // Dark Gray background for buttons
-          buttonHoverBackground: "#4b5563", // Light Gray hover effect for buttons
-
-          linkText: "#1e40af", // Blue color for links
-          linkTextHover: "#3b82f6", // Hover effect for links (lighter blue)
-
-          shadowLight: "#000000", // Light shadow for elements
-          shadowHeavy: "#111111", // Heavier shadow for floating elements
+        'star-movement-bottom': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(-100%, 0%)', opacity: '0' },
         },
-        myColors: {
-          900: '#010f22', // Darker gray for the footer background
-          800: '#2d3748', // Darker gray for the section background
-          600: '#4b5563', // Slightly lighter gray for the border color
-
-          300: '#d1d5db', // Light gray for text and social icons
-          400: '#9ca3af', // Medium gray for other text
-          500: '#6b7280',
+        'star-movement-top': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(100%, 0%)', opacity: '0' },
         },
       },
       animation: {
-        moveUp: 'moveUp 1.4s ease forwards',
-        appear: 'appear 1s 1s forwards',
+        shine: 'shine 5s linear infinite',
+        'star-movement-bottom': 'star-movement-bottom linear infinite alternate',
+        'star-movement-top': 'star-movement-top linear infinite alternate',
       },
-      keyframes: {
-        moveUp: {
-          '0%': { transform: 'translateY(5%)', opacity: '0' },
-          '100%': { transform: 'translateY(0%)', opacity: '1' },
-        },
-        appear: {
-          from: { opacity: '0' },
-          to: { opacity: '1' },
-        },
+      colors: {
+        primary: "#0C1838", // Darker gray for the footer background
+        secondary: "#01233c", // Darker gray for the section background
+        tertiary: "#013651", // Slightly lighter gray for the border color
+        dark: "#05091D",
+        containerBG: "#1f2937",
+
+        // Updated text colors with a subtle blue shade
+        textMuted: "#6C7B8B", // A muted light blue-gray for less emphasis
+        textLink: "#4C91C1",  // A soft blue for links
+        textDisabled: "#A1B1C3", // A muted, bluish-gray for disabled text
+        textLight: "#F8FFFF",
+        textHeading: "#ffffff",
+        textPrimary: "#3A6F96", // A medium blue-gray for general text, subtle yet readable
+        textSubtle: "#5E7D91", // A softer blue with a hint of gray, for secondary or supporting text
+        textAccent: "#4A8FB2",
+        // Add 'accent' and 'accent2' colors if needed
+        accent: "#ff4081", // Example color
+        accent2: "#d81b60", // Example color
+      },
+      boxShadow: {
+        100: "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 3px 6px #1959AD",
+        200: "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 4px 10px #3391FF",
+        300: "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 3px 6px #1959AD",
+        400: "inset 0px 2px 4px 0 rgba(255, 255, 255, 0.05)",
+        500: "0px 16px 24px rgba(0, 0, 0, 0.25), 0px -14px 48px rgba(40, 51, 111, 0.7)",
+      },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+      },
+      transitionProperty: {
+        borderColor: "border-color",
+      },
+      spacing: {
+        "1/5": "20%",
+        "2/5": "40%",
+        "3/5": "60%",
+        "4/5": "80%",
+        "3/20": "15%",
+        "7/20": "35%",
+        "9/20": "45%",
+        "11/20": "55%",
+        "13/20": "65%",
+        "15/20": "75%",
+        "17/20": "85%",
+        "19/20": "95%",
+        22: "88px",
+        100: "100px",
+        512: "512px",
+        330: "330px",
+        388: "388px",
+        400: "400px",
+        440: "440px",
+        640: "640px",
+        960: "960px",
+        1230: "1230px",
+      },
+      zIndex: {
+        1: "1",
+        2: "2",
+        4: "4",
+      },
+      lineHeight: {
+        12: "48px",
+      },
+      borderRadius: {
+        14: "14px",
+        20: "20px",
+        40: "40px",
+        half: "50%",
+        "7xl": "40px",
+      },
+      flex: {
+        50: "0 0 50%",
+        320: "1px 0 320px",
+        300: "0 0 300px",
+        540: "0 0 540px",
+        280: "0 0 280px",
+        256: "0 0 256px",
+        100: "0 0 100%",
       },
     },
   },
   plugins: [
-    addVariablesForColors,
     function ({ addComponents, theme }) {
       addComponents({
         ".custom-scrollbar": {
@@ -100,29 +121,17 @@ export default {
           height: "5px", // Height of scrollbar for horizontal scrolling
         },
         ".stylish-scrollbar::-webkit-scrollbar-track": {
-          background: theme("colors.lightColors.primary"), // Custom track color
+          background: theme("colors.primary"), // Custom track color
           "border-radius": "10px",
         },
         ".stylish-scrollbar::-webkit-scrollbar-thumb": {
-          background: `linear-gradient(45deg, ${theme("colors.lightColors.secondary")}, ${theme("colors.lightColors.secondary")})`, // Custom thumb gradient
+          background: `linear-gradient(45deg, ${theme("colors.secondary")}, ${theme("colors.secondary")})`, // Custom thumb gradient
           "border-radius": "10px",
         },
         ".stylish-scrollbar::-webkit-scrollbar-thumb:hover": {
-          background: `linear-gradient(45deg, ${theme("colors.lightColors.accent")}, ${theme("colors.lightColors.accent2")})`, // Hover effect on thumb
+          background: `linear-gradient(45deg, ${theme("colors.accent")}, ${theme("colors.accent2")})`, // Hover effect on thumb
         },
       });
-    },
-    function ({ matchUtilities, theme }) {
-      matchUtilities(
-        {
-          'bg-grid': (value) => ({
-            backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
-            )}")`,
-          }),
-        },
-        { values: flattenColorPalette(theme('backgroundColor')), type: 'color' }
-      );
     },
   ],
 };

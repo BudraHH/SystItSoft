@@ -8,13 +8,24 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: white;
-  background-color: #ffffff;
+  color: black;
+  background-color: #fff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
+  /* Center content horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}
+
+body, html {
+  overflow-x: hidden;
 }
 
 /* Base font sizes for extra-small screens (xs - less than 640px) */
@@ -209,4 +220,14 @@ span {
 .stylish-scrollbar::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(45deg, #9333ea, #6366f1); /* Hover effect */
   transition: background 0.3s ease; /* Smooth hover transition */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* IE and Edge */
 }

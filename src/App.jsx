@@ -1,33 +1,45 @@
-import Main from "./componenets/Main";
-import Footer from "./componenets/Footer";
-import Header from "./componenets/Header";
 import { Routes, Route } from "react-router-dom";
-import ContactUs from "./componenets/ContactUs";
-import AboutUs from "./componenets/AboutUs";
-import FAQs from "./componenets/FAQs";
-import Capabilities from "./componenets/Capabilities";
-import Solutions from "./componenets/Solutions";
-import Insights from "./componenets/Insights";
-import LandingPage from "./componenets/LandingPage";
+import { useLocation } from "react-router-dom";
+import {useEffect} from "react";
+
+import Header from "./sections/Header.jsx";
+import Footer from "./sections/Footer.jsx";
+
+import LandingPage from "./pages/LandingPage.jsx";
+import About from "./pages/About.jsx";
+import Contact from "./pages/Contact.jsx";
+import Careers from "./pages/Careers.jsx";
+import FAQs from "./pages/FAQs.jsx";
 
 function App() {
-  return (
-    <>
-      <Header />
-      <main className="max-w-[100vw] overflow-x-hidden">
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/solutions" element={<Solutions />} />
-          <Route path="/capabilities" element={<Capabilities />} />
-          <Route path="/insights" element={<Insights />} />
-          <Route path="/faqs" element={<FAQs />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-        </Routes>
-      </main>
-      {/* <Footer /> */}
-    </>
-  );
+    const location = useLocation();
+
+    const isApplyPage = location.pathname.startsWith("/careers/apply");
+    useEffect(() => {
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 0);  // A small timeout with 0 ms delay can help
+    }, []);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
+
+    return (
+        <div className="relative overflow-hidden w-screen">
+            {!isApplyPage && <Header/>}
+
+            <Routes>
+                <Route path="/" element={<LandingPage/>}/>
+                <Route path="/about-us" element={<About/>}/>
+                <Route path="/faqs" element={<FAQs/>}/>
+                <Route path="/career" element={<Careers/>}/>
+                <Route path="/contact-us" element={<Contact/>}/>
+
+            </Routes>
+
+            {!isApplyPage && <Footer/>}
+        </div>
+    );
 }
 
 export default App;
