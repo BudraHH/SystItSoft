@@ -55,7 +55,7 @@ const Footer = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.5 });
   return (
-    <footer className={`w-full px-5 py-10 bg-dark text-myColors-300`}>
+    <footer className={`w-full px-5 pt-20 pb-10 bg-dark text-myColors-300`}>
 
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl ">
         <motion.hr

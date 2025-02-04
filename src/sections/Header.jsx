@@ -66,7 +66,7 @@ const Navbar = ({
                     {!isMobile && id === hoveredTab && id !== activeTab && (
                         <motion.div
                             id={`hovered-tab-indicator-${id}`}
-                            className={`absolute -bottom-1.5 w-full h-0.5 rounded-full bg--textLight `}
+                            className={`absolute -bottom-1.5 w-full h-0.5 rounded-full bg-textDisabled `}
                             variants={fadeIn("up", "tween", 0.1, 0.5)}
                             initial="hidden"
                             animate="show"
@@ -175,7 +175,7 @@ const Header = () => {
     return (
         <header
             id="header"
-            className={`fixed top-0 z-30 w-screen h-20 px-6 md:px-12 py-4 flex flex-row justify-between items-center ${isScrolled ? "backdrop-blur-sm bg-white/40 dark:bg-gray-900/40 shadow-md" : "bg-transparent"} text-sm md:text-lg lg:text-xl`}
+            className={`fixed top-0 z-30 w-screen h-20 px-6 md:px-12 py-4 flex flex-row justify-between items-center ${isScrolled ? "backdrop-blur-sm  shadow-md" : "bg-transparent"} text-sm md:text-lg lg:text-xl`}
         >
             {/* Company Logo */}
             <div
@@ -198,7 +198,6 @@ const Header = () => {
                 </div>
             ) : (
                 <>
-                    {/* Mobile Menu Toggle */}
                     <motion.div
                         initial={{ opacity: 0, x: 100 }}
                         animate={{ opacity: 1, x: 0 }}

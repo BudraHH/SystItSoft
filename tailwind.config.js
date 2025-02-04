@@ -1,49 +1,54 @@
+import defaultTheme from "tailwindcss/defaultTheme";
+import colors from "tailwindcss/colors";
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       backgroundImage: {
-        'radial-gradient': 'radial-gradient(var(--tw-gradient-stops))',
+        "radial-gradient": "radial-gradient(var(--tw-gradient-stops))",
       },
       keyframes: {
         shine: {
-          '0%': { 'background-position': '100%' },
-          '100%': { 'background-position': '-100%' },
+          "0%": { "background-position": "100%" },
+          "100%": { "background-position": "-100%" },
         },
-        'star-movement-bottom': {
-          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
-          '100%': { transform: 'translate(-100%, 0%)', opacity: '0' },
+        "star-movement-bottom": {
+          "0%": { transform: "translate(0%, 0%)", opacity: "1" },
+          "100%": { transform: "translate(-100%, 0%)", opacity: "0" },
         },
-        'star-movement-top': {
-          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
-          '100%': { transform: 'translate(100%, 0%)', opacity: '0' },
+        "star-movement-top": {
+          "0%": { transform: "translate(0%, 0%)", opacity: "1" },
+          "100%": { transform: "translate(100%, 0%)", opacity: "0" },
         },
       },
       animation: {
-        shine: 'shine 5s linear infinite',
-        'star-movement-bottom': 'star-movement-bottom linear infinite alternate',
-        'star-movement-top': 'star-movement-top linear infinite alternate',
+        shine: "shine 5s linear infinite",
+        "star-movement-bottom":
+            "star-movement-bottom linear infinite alternate",
+        "star-movement-top": "star-movement-top linear infinite alternate",
       },
       colors: {
-        primary: "#0C1838", // Darker gray for the footer background
-        secondary: "#01233c", // Darker gray for the section background
-        tertiary: "#013651", // Slightly lighter gray for the border color
+        primary: "#0C1838",
+        secondary: "#01233c",
+        tertiary: "#013651",
         dark: "#05091D",
         containerBG: "#1f2937",
-
-        // Updated text colors with a subtle blue shade
-        textMuted: "#6C7B8B", // A muted light blue-gray for less emphasis
-        textLink: "#4C91C1",  // A soft blue for links
-        textDisabled: "#A1B1C3", // A muted, bluish-gray for disabled text
+        textMuted: "#6C7B8B",
+        textLink: "#4C91C1",
+        textDisabled: "#A1B1C3",
         textLight: "#F8FFFF",
         textHeading: "#ffffff",
-        textPrimary: "#3A6F96", // A medium blue-gray for general text, subtle yet readable
-        textSubtle: "#5E7D91", // A softer blue with a hint of gray, for secondary or supporting text
+        textPrimary: "#3A6F96",
+        textSubtle: "#5E7D91",
         textAccent: "#4A8FB2",
-        // Add 'accent' and 'accent2' colors if needed
-        accent: "#ff4081", // Example color
-        accent2: "#d81b60", // Example color
+        accent: "#ff4081",
+        accent2: "#d81b60",
       },
       boxShadow: {
         100: "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 3px 6px #1959AD",
@@ -113,25 +118,46 @@ export default {
     function ({ addComponents, theme }) {
       addComponents({
         ".custom-scrollbar": {
-          "-ms-overflow-style": "none", // For IE and Edge
-          "scrollbar-width": "none", // For Firefox
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
         },
         ".stylish-scrollbar::-webkit-scrollbar": {
-          width: "1px", // Width of scrollbar
-          height: "5px", // Height of scrollbar for horizontal scrolling
+          width: "1px",
+          height: "5px",
         },
         ".stylish-scrollbar::-webkit-scrollbar-track": {
-          background: theme("colors.primary"), // Custom track color
+          background: theme("colors.primary"),
           "border-radius": "10px",
         },
         ".stylish-scrollbar::-webkit-scrollbar-thumb": {
-          background: `linear-gradient(45deg, ${theme("colors.secondary")}, ${theme("colors.secondary")})`, // Custom thumb gradient
+          background: `linear-gradient(45deg, ${theme(
+              "colors.secondary"
+          )}, ${theme("colors.secondary")})`,
           "border-radius": "10px",
         },
         ".stylish-scrollbar::-webkit-scrollbar-thumb:hover": {
-          background: `linear-gradient(45deg, ${theme("colors.accent")}, ${theme("colors.accent2")})`, // Hover effect on thumb
+          background: `linear-gradient(45deg, ${theme(
+              "colors.accent"
+          )}, ${theme("colors.accent2")})`,
         },
       });
     },
+    addVariablesForColors,
   ],
 };
+
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette
+      ? flattenColorPalette(theme("colors"))
+      : Object.fromEntries(
+          Object.entries(theme("colors")).map(([key, val]) => [`--${key}`, val])
+      );
+
+  let newVars = Object.fromEntries(
+      Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}

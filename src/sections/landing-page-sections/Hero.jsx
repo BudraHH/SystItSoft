@@ -2,7 +2,9 @@ import SplitText from "../../utils/SplitText.jsx";
 import StarBorder from "../../utils/StarBorder.jsx";
 import { motion, useInView } from "framer-motion";
 import {useRef} from "react";
-import {LampDemo} from "../../componenets/Lamp.jsx";
+import Features from "./Features.jsx";
+import {Link} from "react-router-dom";
+import {BackgroundBeams} from "../../componenets/BackgroundBeams.jsx";
 
 const Hero = () => {
     const ref = useRef(null);
@@ -30,24 +32,21 @@ const Hero = () => {
                         </motion.p>
 
                         {isInView && (
-                            <div className={`flex flex-col justify-center items-center`}>
-                                <LampDemo/>
-                                <SplitText
-                                    text="Organize. Systemize. Succeed!"
-                                    className={`font-semibold text-xl sm:text-2xl text-textLight`}
-                                    textSize="text-lg"
-                                    delay={150}
-                                    animationFrom={{
-                                        opacity: 0,
-                                        transform: "translate3d(0,50px,0)",
-                                    }}
-                                    animationTo={{
-                                        opacity: 1,
-                                        transform: "translate3d(0,0,0)",
-                                    }}
-                                    easing="easeOutCubic"
-                                />
-                            </div>
+                            <SplitText
+                                text="Organize. Systemize. Succeed!"
+                                className={`font-semibold text-xl sm:text-2xl text-textLight`}
+                                textSize="text-lg"
+                                delay={150}
+                                animationFrom={{
+                                    opacity: 0,
+                                    transform: "translate3d(0,50px,0)",
+                                }}
+                                animationTo={{
+                                    opacity: 1,
+                                    transform: "translate3d(0,0,0)",
+                                }}
+                                easing="easeOutCubic"
+                            />
                         )}
                     </div>
 
@@ -79,12 +78,15 @@ const Hero = () => {
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 1, delay: 1 }}
                     >
-                        <StarBorder as="button" className="text-white text-sm" color="cyan" speed="5s">
-                            Get Started
-                        </StarBorder>
+                        <Link to="">
+                            <StarBorder as="button" className="text-white text-sm" color="cyan" speed="5s">
+                                Get Started
+                            </StarBorder>
+                        </Link>
                     </motion.div>
                 </div>
             </div>
+            {/*<BackgroundBeams/>*/}
         </section>
     );
 };

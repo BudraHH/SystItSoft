@@ -10,6 +10,7 @@ import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import Careers from "./pages/Careers.jsx";
 import FAQs from "./pages/FAQs.jsx";
+import ApplyPage from "./pages/ApplyPage.jsx";
 
 function App() {
     const location = useLocation();
@@ -32,7 +33,8 @@ function App() {
                 <Route path="/" element={<LandingPage/>}/>
                 <Route path="/about-us" element={<About/>}/>
                 <Route path="/faqs" element={<FAQs/>}/>
-                <Route path="/career" element={<Careers/>}/>
+                <Route path="/careers" element={<Careers/>}/>
+                <Route path="/careers/apply/:jobId" element={<ApplyPage/>}/>
                 <Route path="/contact-us" element={<Contact/>}/>
 
             </Routes>

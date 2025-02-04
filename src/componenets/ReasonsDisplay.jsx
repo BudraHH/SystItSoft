@@ -70,7 +70,7 @@ const ReasonsDisplay = ({ data }) => {
                 <motion.div
                     initial={{opacity: 0, x: -100}}
                     animate={isInView ? {opacity: 1, x: 0} : {opacity: 0, x: -100}}
-                    transition={{ duration: 1}}
+                    transition={{ delay: 0.5, duration: 0.5}}
                     className={`absolute left-5 top-0 w-[2px] bg-primary h-full`}>
                     <motion.div
                         style={{ height: heightTransform, opacity: opacityTransform }}

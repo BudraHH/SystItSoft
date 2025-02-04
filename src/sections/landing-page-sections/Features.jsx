@@ -17,21 +17,14 @@ const Features = () => {
         >
             <div className="relative z-10 w-full h-full px-16 flex flex-col justify-start items-center space-y-8 md:space-y-10">
                 {/* Section Heading */}
-                <motion.div
+                <motion.h2
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
-                    transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
+                    transition={{ delay: 0.2, visualDuration: 0.5}}
+                    className={`text-5xl font-bold text-textHeading`}
                 >
-                    <SplitText
-                        text="What we do?"
-                        className={`font-semibold text-center md:text-6xl text-textLight`}
-                        textSize="text-xl sm:text-3xl md:text-5xl font-bold"
-                        delay={150}
-                        animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
-                        animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
-                        easing="easeOutCubic"
-                    />
-                </motion.div>
+                    What we do?
+                </motion.h2>
 
                 {/* Spotlight Cards Section */}
                 <div className="grid grid-cols-1 mt-10 text-center sm:mt-16 sm:grid-cols-2 sm:gap-x-12 gap-y-12 md:grid-cols-3 md:gap-5 xl:mt-24">
@@ -41,7 +34,7 @@ const Features = () => {
                             initial={{ opacity: 0, y: 30 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                duration: 1,
+                                duration: 0.5,
                                 delay: 0.5 * index,
                                 type: "spring",
                                 stiffness: 80,

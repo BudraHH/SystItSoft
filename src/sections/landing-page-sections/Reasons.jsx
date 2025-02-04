@@ -51,7 +51,7 @@ const Reasons = () => {
                         : { opacity: 0, y: 100 }
                 }
                 transition={{
-                    duration: 1,
+                    duration: 0.5,
                     delay: 0.5
                 }}
             >
@@ -65,7 +65,7 @@ const Reasons = () => {
                         : { opacity: 0, y: 100 }
                 }
                 transition={{
-                    duration: 1,
+                    duration: 0.5,
                     delay: 0.75
                 }}
             >

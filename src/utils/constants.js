@@ -310,3 +310,6 @@ export const reasons = [
         }
     }
 ];
+
+
+export const skillOptions = ["JavaScript", "Python", "React", "Node.js", "Machine Learning", "Cybersecurity"];

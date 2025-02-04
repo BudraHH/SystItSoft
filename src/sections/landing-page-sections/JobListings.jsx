@@ -72,8 +72,6 @@ const JobListings = () => {
                                 <p className="text-sm text-left">
                                     {/* Replace with the appropriate link */}Click {" "}
                                     <a href={`/careers/apply/${job.id}`} className="text-blue-600 font-bold hover:underline">here</a> to apply.
-                                    {/* For an external link, you could use: */}
-                                    {/* <a href="https://external-url.com/apply" className="text-blue-600 font-bold hover:underline">here</a> */}
                                 </p>
                             </>
                         )}
