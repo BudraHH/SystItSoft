@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/sysitsoft/",
+  base: "https://github.com/BudraHH/SystItSoft/",
   server: {
     middlewareMode: false,
   },
