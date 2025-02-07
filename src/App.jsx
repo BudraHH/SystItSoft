@@ -6,14 +6,17 @@ import Header from "./sections/Header.jsx";
 import Footer from "./sections/Footer.jsx";
 
 import LandingPage from "./pages/LandingPage.jsx";
-import About from "./pages/About.jsx";
-import Contact from "./pages/Contact.jsx";
-import Careers from "./pages/Careers.jsx";
-import FAQs from "./pages/FAQs.jsx";
+import AboutPage from "./pages/AboutPage.jsx";
+import ContactPage from "./pages/ContactPage.jsx";
+import CareersPage from "./pages/CareersPage.jsx";
+import FAQsPage from "./pages/FAQsPage.jsx";
 import ApplyPage from "./pages/ApplyPage.jsx";
 
 function App() {
     const location = useLocation();
+
+
+
 
     const isApplyPage = location.pathname.startsWith("/careers/apply");
     useEffect(() => {
@@ -25,17 +28,21 @@ function App() {
         window.scrollTo(0, 0);
     }, [location]);
 
+
+
     return (
-        <div className="relative overflow-hidden w-screen">
+        <div className="relative overflow-hidden w-[100vw] bg-gradient-to-r from-dark via-primary to-dark">
             {!isApplyPage && <Header/>}
 
             <Routes>
                 <Route path="/" element={<LandingPage/>}/>
-                <Route path="/about-us" element={<About/>}/>
-                <Route path="/faqs" element={<FAQs/>}/>
-                <Route path="/careers" element={<Careers/>}/>
+                <Route path="/about-us" element={<AboutPage/>}/>
+                <Route path="/faqs" element={<FAQsPage/>}/>
+                <Route path="/careers" element={<CareersPage/>}/>
                 <Route path="/careers/apply/:jobId" element={<ApplyPage/>}/>
-                <Route path="/contact-us" element={<Contact/>}/>
+                <Route path="/contact-us" element={<ContactPage/>}/>
+
+
 
             </Routes>
 

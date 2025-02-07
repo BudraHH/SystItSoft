@@ -27,150 +27,64 @@
 body, html {
   overflow-x: hidden;
 }
-
-/* Base font sizes for extra-small screens (xs - less than 640px) */
-h1 {
-  font-size: 1.25rem; /* Default size for xs screens */
+/* Extra-Small Screens (xs: < 475px) */
+@media (max-width: 474px) {
+  h1 { font-size: 1.25rem; }
+  h2 { font-size: 1.125rem; }
+  h3 { font-size: 1rem; }
+  h4 { font-size: 0.9rem; }
+  h5 { font-size: 0.75rem; }
+  h6 { font-size: 0.7rem; }
+  p  { font-size: 0.875rem; }
+  span { font-size: 0.75rem; }
 }
 
-h2 {
-  font-size: 1.125rem;
+/* Small Screens (sm: 475px - 767px) */
+@media (min-width: 475px) and (max-width: 767px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1rem; }
+  h4 { font-size: 1rem; } /* Fix: Previously set to 0rem */
+  h5 { font-size: 0.875rem; }
+  h6 { font-size: 0.75rem; }
+  p  { font-size: 1rem; }
+  span { font-size: 0.75rem; }
 }
 
-h3 {
-  font-size: 1rem;
+/* Medium Screens (md: 768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  h5 { font-size: 1.125rem; }
+  h6 { font-size: 1rem; }
+  p  { font-size: 1.125rem; }
+  span { font-size: 0.8rem; }
 }
 
-h4 {
-  font-size: 0.9rem;
+/* Large Screens (lg: 1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2.25rem; }
+  h3 { font-size: 2rem; }
+  h4 { font-size: 1.75rem; }
+  h5 { font-size: 1.5rem; }
+  h6 { font-size: 1.25rem; }
+  p  { font-size: 1.25rem; }
+  span { font-size: 0.8rem; }
 }
 
-h5 {
-  font-size: 0.75rem;
-}
-
-h6 {
-  font-size: 0.7rem;
-}
-
-p {
-  font-size: 0.875rem;
-}
-
-span {
-  font-size: 0.75rem;
-}
-
-/* sm screens (min-width: 640px) */
-@media (min-width: 640px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-  h2 {
-    font-size: 1.25rem;
-  }
-  h3 {
-    font-size: 1rem;
-  }
-  h4 {
-    font-size: 0rem;
-  }
-  h5 {
-    font-size: 0.875rem;
-  }
-  h6 {
-    font-size: 0.75rem;
-  }
-  p {
-    font-size: 1rem;
-  }
-  span {
-    font-size: 0.75rem;
-  }
-}
-
-/* md screens (min-width: 768px) */
-@media (min-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 1.75rem;
-  }
-  h3 {
-    font-size: 1.5rem;
-  }
-  h4 {
-    font-size: 1.25rem;
-  }
-  h5 {
-    font-size: 1.125rem;
-  }
-  h6 {
-    font-size: 1rem;
-  }
-  p {
-    font-size: 1.125rem;
-  }
-  span {
-    font-size: 0.8rem;
-  }
-}
-
-/* lg screens (min-width: 1024px) */
-@media (min-width: 1024px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  h2 {
-    font-size: 2.25rem;
-  }
-  h3 {
-    font-size: 2rem;
-  }
-  h4 {
-    font-size: 1.75rem;
-  }
-  h5 {
-    font-size: 1.5rem;
-  }
-  h6 {
-    font-size: 1.25rem;
-  }
-  p {
-    font-size: 1.25rem;
-  }
-  span {
-    font-size: 0.8rem;
-  }
-}
-
-/* xl screens (min-width: 1280px) */
+/* Extra-Large Screens (xl: ≥ 1280px) */
 @media (min-width: 1280px) {
-  h1 {
-    font-size: 3rem;
-  }
-  h2 {
-    font-size: 2.75rem;
-  }
-  h3 {
-    font-size: 2.5rem;
-  }
-  h4 {
-    font-size: 2rem;
-  }
-  h5 {
-    font-size: 1.75rem;
-  }
-  h6 {
-    font-size: 1.5rem;
-  }
-  p {
-    font-size: 1.5rem;
-  }
-  span {
-    font-size: 0.9rem;
-  }
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.75rem; }
+  h3 { font-size: 2.5rem; }
+  h4 { font-size: 2rem; }
+  h5 { font-size: 1.75rem; }
+  h6 { font-size: 1.5rem; }
+  p  { font-size: 1.5rem; }
+  span { font-size: 0.9rem; }
 }
 
 /* Custom scrollbar - thin and sleek */

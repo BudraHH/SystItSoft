@@ -32,34 +32,34 @@ const ReasonsDisplay = ({ data }) => {
 
 
     return (
-        <div ref={containerRef} className={`relative w-full h-screen overflow-y-auto hide-scrollbar font-sans px-10 `} >
+        <div ref={containerRef} className={`relative w-full h-screen overflow-y-auto hide-scrollbar font-sans sm:px-5 lg:px-10  `} >
 
 
-            <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+            <div ref={ref} className="relative  xl:w-11/12 mx-auto pb-10 ">
                 {data.map((item, index) => (
-                    <div key={index} className="flex justify-start gap-10 pt-10 md:pt-32">
+                    <div key={index} className="flex flex-col space-y-5 md:space-y-0 md:flex-row md:justify-start gap-0 md:gap-5  pt-10 md:pt-20 lg:pt-28 xl:pt-32 ">
                         {/* ReasonsDisplay Indicator */}
                         <div
-                            className="sticky top-40 flex flex-row justify-between items-start z-40 self-start w-1/3  space-x-5">
+                            className="md:sticky md:top-24 lg:top-36 flex flex-row  items-center md:justify-between md:items-start z-40 md:self-start w-full md:w-2/5 space-x-2 md:space-x-5 ">
                             <div
                                 style={{
                                     boxShadow: `${isInView ? "0 0 10px 4px #013651" : ""}`,
                                     transition: `${isInView ? "box-shadow 0.3s ease-in-out" : ""}`,
                                 }}
-                                className={`relative h-10 w-10 rounded-full bg-primary flex items-center justify-center dark:border-neutral-700`}
+                                className={`relative h-10 w-10 rounded-full bg-primary flex items-center justify-center border-neutral-700 `}
                             >
                                 <div className={`h-6 w-6 rounded-full bg-textLight opacity-50`}/>
                             </div>
 
-                            <h3 className={`hidden md:block text-2xl font-bold text-textLight opacity-90 w-5/6`}>
+                            <h3 className={`md:font-extrabold text-textLight text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl leading-none opacity-90 w-full  text-start md:w-5/6 `}>
                                 {item.title}
                             </h3>
                         </div>
 
                         {/* ReasonsDisplay Content */}
-                        <div className="relative w-2/3">
+                        <div className="ml-10 md:ml-0 md:relative md:w-2/3 ">
 
-                            <div className={`p-6 rounded-lg shadow-md bg-gradient-to-r from-primary to-dark`}>
+                            <div className={`p-4 xl:h-96 rounded-lg shadow-md hover:shadow-lg hover:shadow-tertiary shadow-tertiary  bg-gradient-to-r from-primary  to-dark`}>
                                 {item.content}
                             </div>
                         </div>

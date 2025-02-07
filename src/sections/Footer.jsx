@@ -57,7 +57,7 @@ const Footer = () => {
   return (
     <footer className={`w-full px-5 pt-20 pb-10 bg-dark text-myColors-300`}>
 
-      <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl ">
+      <div className="px-4 mx-auto sm:px-6 lg:px-8  ">
         <motion.hr
             initial="hidden"
             animate={isInView ? "show" : "hidden"}
@@ -90,7 +90,7 @@ const Footer = () => {
                   },
                   exit: { opacity: 0, y: 20 },
                 }}
-                className="w-auto max-w-[120px] cursor-pointer "
+                className="w-auto max-w-[120px] cursor-pointer"
                 src={logo}
                 alt="SystItSoft"
               />
@@ -108,10 +108,8 @@ const Footer = () => {
                   },
                   exit: { opacity: 0, y: 20 },
                 }}
-                className={`text-base leading-relaxed text-textMuted mt-7`}
-              >
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis enim velit mollit.
+                className={`text-base leading-relaxed text-textMuted `}
+              > Organize, Sytemize, Succeed!
               </motion.p>
 
               <ul ref={ref} className="flex items-center space-x-2 mt-5">
@@ -160,7 +158,7 @@ const Footer = () => {
                   },
                   exit: { opacity: 0, y: 20 },
                 }}
-                className={`text-sm tracking-widest text-textDisabled font-bold uppercase`}
+                className={`text-sm tracking-widest text-textDisabled font-bold uppercase lg:mt-5`}
               >
                 Company
               </motion.p>
@@ -208,7 +206,7 @@ const Footer = () => {
                   },
                   exit: { opacity: 0, y: 20 },
                 }}
-                className={`text-sm tracking-widest text-textDisabled font-bold uppercase`}
+                className={`text-sm tracking-widest text-textDisabled font-bold uppercase lg:mt-5`}
               >
                 Help
               </motion.p>

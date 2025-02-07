@@ -1,70 +1,63 @@
-import { useRef } from "react";
-
 import { motion, useInView } from "framer-motion";
-import SplitText from "../../utils/SplitText.jsx";
 import SpotlightCard from "../../utils/SpotlightCard.jsx";
 import { services } from "../../utils/constants.js";
+import { useRef } from "react";
 
-const Features = () => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, amount: 0.5 });
-
+const Features = ({featuresRef}) => {
+    const isInView = useInView(featuresRef, { once: true, amount: 0.5 });
 
     return (
         <section
-            className="relative z-20 w-screen min-h-screen flex flex-col items-center justify-center"
-            ref={ref}
+            className=" w-full pt-24  flex flex-col justify-center items-center space-y-4  lg:space-y-6 xl:space-y-10  "
+            ref={featuresRef}
         >
-            <div className="relative z-10 w-full h-full px-16 flex flex-col justify-start items-center space-y-8 md:space-y-10">
-                {/* Section Heading */}
-                <motion.h2
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
-                    transition={{ delay: 0.2, visualDuration: 0.5}}
-                    className={`text-5xl font-bold text-textHeading`}
-                >
-                    What we do?
-                </motion.h2>
+            {/* Section Heading */}
+            <motion.h2
+                initial={{ opacity: 0, y: 100 }}
+                animate={ isInView ? { opacity: 1 , y: 0 } : { opacity: 0, y: 100 }}
+                transition={{ delay: 0.2, duration: 0.25 }}
+                className="text-2xl  md:text-3xl lg:text-4xl xl:text-5xl font-bold text-textHeading text-center"
+            >
+                What we do?
+            </motion.h2>
 
-                {/* Spotlight Cards Section */}
-                <div className="grid grid-cols-1 mt-10 text-center sm:mt-16 sm:grid-cols-2 sm:gap-x-12 gap-y-12 md:grid-cols-3 md:gap-5 xl:mt-24">
-                    {services.map((service, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={isInView ? { opacity: 1, y: 0 } : {}}
-                            transition={{
-                                duration: 0.5,
-                                delay: 0.5 * index,
-                                type: "spring",
-                                stiffness: 80,
-                            }}
-                            whileHover={{ scale: 1.025 }}
-                            className={`border border-tertiary  
-                            rounded-xl cursor-pointer`}
-                        >
-                            <SpotlightCard
-                                className="h-full"
-                                spotlightColor="rgba(0, 229, 255, 0.2)"
+            {/* Spotlight Cards Section */}
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 xl:gap-8 text-center px-6  xl:px-16">
+                {services.map((service, index) => {
+                        const cardRef = useRef(null);
+                        const cardInView = useInView(cardRef, { once: true, amount: 0.2 });
+
+                        return (
+                            <motion.div
+                                ref={cardRef}
+                                key={index}
+                                initial={{ opacity: 0, y: 100 }}
+                                animate={cardInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.2 * index + 0.3,
+                                    type: "spring",
+                                    stiffness: 80,
+                                }}
+                                whileHover={{ scale: 1.025 }}
+                                className="border border-tertiary bg-primary rounded-xl cursor-pointer shadow-md"
                             >
-                                <div className="flex flex-col h-full space-y-4 p-6">
-                                    <div className="flex-1">
-                                        <h3
-                                            className={`text-lg font-bold text-textHeading`}
-                                        >
+                                <SpotlightCard
+                                    className="h-full"
+                                    spotlightColor="rgba(0, 229, 255, 0.2)"
+                                >
+                                    <div className="flex flex-col justify-center items-center h-full space-y-2 xl:p-4">
+                                        <h3 className="text-lg lg:text-2xl  font-bold text-textHeading">
                                             {service.title}
                                         </h3>
-                                        <p
-                                            className={`text-sm mt-2 text-textMuted`}
-                                        >
+                                        <p className="text-sm lg:text-lg text-textDisabled">
                                             {service.description}
                                         </p>
                                     </div>
-                                </div>
-                            </SpotlightCard>
-                        </motion.div>
-                    ))}
-                </div>
+                                </SpotlightCard>
+                            </motion.div>
+                        );
+                    })}
             </div>
         </section>
     );

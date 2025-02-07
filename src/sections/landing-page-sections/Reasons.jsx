@@ -7,13 +7,13 @@ const Reasons = () => {
     const data = reasons.map((reason) => ({
         title: reason.title,
         content: (
-            <div className="flex flex-col space-y-6">
-                <p className="text-textLight opacity-80 text-xl font-medium">
+            <div className="flex flex-col h-full space-y-2 md:space-y-3 lg:space-y-4 xl:space-y-6 ">
+                <p className="text-textLight opacity-80 text-lg leading-6 sm:text-2xl font-medium">
                     {reason.description}
                 </p>
-                <div className="flex flex-row w-full space-x-2">
+                <div className="flex flex-col lg:flex-row w-full space-y-2 lg:space-y-0 lg:space-x-2">
                     <div
-                        className="p-5 bg-containerBG w-1/2 rounded-lg flex flex-col justify-start items-start space-y-2 shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl"
+                        className="p-5 bg-containerBG lg:w-1/2 rounded-lg flex flex-col justify-start items-start space-y-2 shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl"
                     >
                         <h3 className="text-textLight opacity-80 font-bold text-base">
                             Details
@@ -23,7 +23,7 @@ const Reasons = () => {
                         </p>
                     </div>
                     <div
-                        className="p-5 bg-containerBG w-1/2 rounded-lg flex flex-col justify-start items-start space-y-2 shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl"
+                        className="p-5 bg-containerBG lg:w-1/2 rounded-lg flex flex-col justify-start items-start space-y-2 shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl"
                     >
                         <h3 className="text-textLight font-bold opacity-80 text-sm md:text-base">
                             Impact
@@ -41,9 +41,9 @@ const Reasons = () => {
     const isInView = useInView(ref, { once: false, amount: 0.5 });
 
     return (
-        <div ref={ref} className="w-full py-16 px-4 md:px-8 space-y-10">
+        <div ref={ref} className="w-full py-24 px-4 md:px-8 space-y-6 ">
             <motion.h2
-                className="text-4xl md:text-5xl font-bold text-center text-textHeading"
+                className="text-2xl  md:text-3xl lg:text-4xl xl:text-5xl font-bold text-textHeading text-center"
                 initial={{ opacity: 0, y: 100 }}
                 animate={
                     isInView
@@ -62,12 +62,13 @@ const Reasons = () => {
                 animate={
                     isInView
                         ? { opacity: 1, y: 0 }
-                        : { opacity: 0, y: 100 }
+                        : {}
                 }
                 transition={{
                     duration: 0.5,
                     delay: 0.75
                 }}
+                className={``}
             >
                 <ReasonsDisplay data={data} />
             </motion.div>
