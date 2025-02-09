@@ -109,7 +109,7 @@ const LandingPageHero = ({ heroRef, scrollToServices }) => {
                                 initial={{ opacity: 0, y: 100 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
                                 transition={{ duration: 1, delay: 0.75 }}
-                                className="text-lg leading-4 sm:text-lg md:text-lg xl:text-xl  text-textDisabled opacity-90 mb-1 md:mb-4 text-center md:text-start"
+                                className="text-lg  sm:text-lg md:text-lg xl:text-xl  text-textDisabled opacity-90 mb-1 md:mb-4 text-justify"
                             >
                                 Unlock the full potential of your business with our powerful and scalable
                                 software solutions. Designed to streamline processes, boost productivity, and
