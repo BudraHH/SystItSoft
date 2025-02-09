@@ -37,10 +37,10 @@ const ReasonsDisplay = ({ data }) => {
 
             <div ref={ref} className="relative  xl:w-11/12 mx-auto pb-10 ">
                 {data.map((item, index) => (
-                    <div key={index} className="flex flex-col space-y-5 md:space-y-0 md:flex-row md:justify-start gap-0 md:gap-5  pt-10 md:pt-20 lg:pt-28 xl:pt-32 ">
+                    <div key={index} className="flex flex-col space-y-5 md:space-y-0 md:flex-row md:justify-start gap-0 md:gap-5  pt-10 md:pt-16 xl:py-12 ">
                         {/* ReasonsDisplay Indicator */}
                         <div
-                            className="md:sticky md:top-24 lg:top-36 flex flex-row  items-center md:justify-between md:items-start z-40 md:self-start w-full md:w-2/5 space-x-2 md:space-x-5 ">
+                            className="px-2 md:px-0 md:sticky md:top-16 lg:top-12 flex flex-row  items-center md:justify-between md:items-start z-40 md:self-start w-full md:w-2/5 space-x-2 md:space-x-5 ">
                             <div
                                 style={{
                                     boxShadow: `${isInView ? "0 0 10px 4px #013651" : ""}`,
@@ -51,21 +51,22 @@ const ReasonsDisplay = ({ data }) => {
                                 <div className={`h-6 w-6 rounded-full bg-textLight opacity-50`}/>
                             </div>
 
-                            <h3 className={`md:font-extrabold text-textLight text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl leading-none opacity-90 w-full  text-start md:w-5/6 `}>
+                            <h3 className={`  md:font-extrabold text-textLight text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl leading-none opacity-90 w-full  text-start md:w-5/6 `}>
                                 {item.title}
                             </h3>
                         </div>
 
                         {/* ReasonsDisplay Content */}
                         <div className="ml-10 md:ml-0 md:relative md:w-2/3 ">
-
-                            <div className={`p-4 xl:h-96 rounded-lg shadow-md hover:shadow-lg hover:shadow-tertiary shadow-tertiary  bg-gradient-to-r from-primary  to-dark`}>
+                            <div className={`p-4 xl:h-96 rounded-xl shadow-xl bg-primary/5 border border-textPrimary/25 backdrop-blur-3xl`}>
+                                <div className="absolute inset-0 rounded-xl w-full h-full bg-[radial-gradient(circle,rgba(0,18,90,0.2)_0%,rgba(0,13,30,0.9)_100%)] backdrop-blur-2xl opacity-60 pointer-events-none" />
+                                <div className="absolute inset-0 rounded-xl bg-primary10  opacity-50 pointer-events-none" />
                                 {item.content}
                             </div>
                         </div>
                     </div>
                 ))}
-
+                <div className={`h-64`}></div>
                 {/* Vertical Line Animation */}
                 <motion.div
                     initial={{opacity: 0, x: -100}}

@@ -33,21 +33,21 @@ module.exports = {
         "star-movement-top": "star-movement-top linear infinite alternate",
       },
       colors: {
-        primary: "#0C1838",
-        secondary: "#01233c",
-        tertiary: "#013651",
-        dark: "#05091D",
+        primary: "#000d30",
+        secondary: "#001246",
+        tertiary: "#00125a",
+        dark: "#000d1e",
         containerBG: "#1f2937",
-        textMuted: "#6C7B8B",
-        textLink: "#4C91C1",
-        textDisabled: "#A1B1C3",
-        textLight: "#F8FFFF",
+        textMuted: "#c9d4e1",   // Darker muted shade
+        textLink: "#3A6F96",    // Matching textPrimary
+        textDisabled: "#b1c5dd", // Darker disabled shade
+        textLight: "#d9e5f1",   // Softer light text
+
         textHeading: "#ffffff",
         textPrimary: "#3A6F96",
-        textSubtle: "#5E7D91",
-        textAccent: "#4A8FB2",
-        accent: "#ff4081",
-        accent2: "#d81b60",
+        textSubtle: "#8ea6b8",
+        textAccent: "#1F3D5A",
+
       },
       boxShadow: {
         100: "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 3px 6px #1959AD",

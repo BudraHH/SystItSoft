@@ -99,6 +99,7 @@ export const jobListings = [
     { id: 3, title: "SDE Intern", location: "Remote", type: "Intern" },
     { id: 4, title: "SDET Intern", location: "Remote", type: "Intern" },
     { id: 5, title: "Data Engineer Intern", location: "Remote", type: "Intern" }
+
 ];
 
 export const jobDescriptionContent = {
@@ -189,33 +190,45 @@ export const jobDescriptionContent = {
     }
 };
 
-
-export const benefits = [
+export const careerReasons = [
     {
-        title: "Innovative Projects",
-        desc: "Work on high-impact projects that disrupt industries and challenge the status quo.",
+        title: "Work on Cutting-Edge & Innovative Projects",
+        why: "Instead of following traditional methods, the focus is on driving innovation by solving unique problems and disrupting industries.",
+        how: [
+            "Emphasis on R&D-driven problem-solving with research-backed strategies.",
+            "Utilizing AI, automation, and cloud technologies to build scalable and future-ready solutions.",
+            "Developing industry-specific solutions rather than generic software."
+        ]
     },
     {
-        title: "Rapid Career Growth",
-        desc: "Get hands-on experience and fast-track your career in a dynamic and agile environment.",
-    },
-    {
-        title: "Collaborative Culture",
-        desc: "Be part of a close-knit, collaborative team where your ideas are heard and valued.",
-    },
-    {
-        title: "Flexible Work Hours",
-        desc: "Enjoy the freedom to manage your work schedule and achieve the perfect work-life balance.",
-    },
-    {
-        title: "Entrepreneurial Spirit",
-        desc: "Take ownership of projects and contribute directly to the company’s growth and success.",
-    },
-    {
-        title: "Learning Opportunities",
-        desc: "Expand your skill set through constant learning and exposure to diverse challenges and technologies.",
+        title: "Rapid Career Growth & Hands-On Experience",
+        why: "Opportunities to take on multiple responsibilities and work directly on impactful projects lead to a steep learning curve.",
+        how: [
+            "Involvement in real-world projects instead of just training exercises.",
+            "Exposure to different aspects of business, from tech development to client interactions.",
+            "Encouragement to take ownership of projects, contributing directly to overall success."
+        ]
     },
 
+
+    {
+        title: "Entrepreneurial Mindset & Ownership of Work",
+        why: "The work environment fosters decision-making, leadership, and problem-solving skills, encouraging a sense of ownership.",
+        how: [
+            "Individuals are encouraged to take initiative rather than just follow instructions.",
+            "New ideas are welcomed, allowing direct contributions to product roadmaps and strategies.",
+            "Exposure to business operations helps develop a broader understanding of the industry."
+        ]
+    },
+    {
+        title: "Continuous Learning & Skill Development",
+        why: "A dynamic environment pushes individuals to learn new technologies, tools, and methodologies rapidly.",
+        how: [
+            "Work on advanced technologies like AI, cloud computing, and automation.",
+            "Access to mentorship from experienced industry professionals.",
+            "Encouragement for self-learning and experimentation to explore innovative approaches."
+        ]
+    }
 ];
 
 
@@ -313,3 +326,5 @@ export const reasons = [
 
 
 export const skillOptions = ["JavaScript", "Python", "React", "Node.js", "Machine Learning", "Cybersecurity"];
+
+

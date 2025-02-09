@@ -27,6 +27,32 @@
 body, html {
   overflow-x: hidden;
 }
+
+@keyframes borderLight {
+  0% {
+    border-image-source: linear-gradient(45deg, #00425a, transparent);
+  }
+  25% {
+    border-image-source: linear-gradient(135deg, #00125a, transparent);
+  }
+  50% {
+    border-image-source: linear-gradient(225deg, #00425a, transparent);
+  }
+  75% {
+    border-image-source: linear-gradient(315deg, #00125a, transparent);
+  }
+  100% {
+    border-image-source: linear-gradient(45deg, #00425a, transparent);
+  }
+}
+
+.animate-border-light {
+  border-width: 3px;
+  border-style: solid;
+  border-image-slice: 1;
+  animation: borderLight 3s linear infinite;
+}
+
 /* Extra-Small Screens (xs: < 475px) */
 @media (max-width: 474px) {
   h1 { font-size: 1.25rem; }

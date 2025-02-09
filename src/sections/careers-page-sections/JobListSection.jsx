@@ -12,16 +12,31 @@ const JobListSection = ({jobListRef}) => {
 
     return (
 
-        <section ref={sectionRef}
-                 className="relative z-20 w-full min-h-screen py-20 md:py-24 lg:py-28 px-6 md:px-10 lg:px-12 xl:px-20  flex flex-col items-center justify-center space-y-5  lg:space-y-10 bg-gradient-to-r from-primary to-dark"
-        ><motion.h2
+        <section
+            className="relative z-20 w-full h-[100vh] py-22 md:py-28 flex flex-col items-start justify-start space-y-8 md:space-y-10 lg:space-y-14"
+            ref={sectionRef}
+        ><div className={`flex flex-col lg:flex-row items-start justify-center lg:items-center lg:justify-between space-y-2 lg:space-y-0 w-full`}>
+            <motion.h2
                 initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-                className="text-2xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-textHeading text-center"
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                className="text-white text-2xl md:text-4xl lg:text-5xl font-bold text-start lg:w-2/3"
             >
-                Join our team as
+                Current Openings
             </motion.h2>
+            <motion.h6
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                className="text-white text-xs sm:text-sm md:text-lg lg:text-xl font-normal text-start lg:w-1/3">
+
+                If you think you might be a good fit for our team, we’d love to hear from you!
+            </motion.h6>
+        </div>
+
+            <div className={`flex flex-row justify-between items-center`}>
+
+            </div>
 
             <div className="w-full flex flex-col space-y-4">
                 {jobListings.map((job) => {
