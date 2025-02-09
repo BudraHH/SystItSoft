@@ -46,7 +46,7 @@ function App() {
 
             </Routes>
 
-            {/*{!isApplyPage && <Footer/>}*/}
+            {!isApplyPage && <Footer/>}
         </div>
     );
 }
