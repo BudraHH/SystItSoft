@@ -68,7 +68,7 @@ const LandingPageHero = ({ heroRef, scrollToServices }) => {
                                     initial={{ opacity: 0, y: 50 }}
                                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0,y:50 }}
                                     transition={{ duration: 0.45, delay: 0.6 }}
-                                    className="text-sm leading-4 md:text-lg lg:text-xl xl:text-xl font-bold text-textMuted"
+                                    className="text-lg leading-4 md:text-lg lg:text-xl xl:text-xl font-bold text-textMuted"
                                 >
                                     Organize,
                                 </motion.p>
@@ -76,7 +76,7 @@ const LandingPageHero = ({ heroRef, scrollToServices }) => {
                                     initial={{ opacity: 0, y: 50 }}
                                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                                     transition={{ duration: 0.45, delay: 0.75 }}
-                                    className="text-sm leading-4 md:text-lg lg:text-xl xl:text-xl font-bold text-textMuted"
+                                    className="text-lg leading-4 md:text-lg lg:text-xl xl:text-xl font-bold text-textMuted"
                                 >
                                     Systemize,
                                 </motion.p>
@@ -84,9 +84,9 @@ const LandingPageHero = ({ heroRef, scrollToServices }) => {
                                     initial={{ opacity: 0, y: 50 }}
                                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                                     transition={{ duration: 0.45, delay: 0.95 }}
-                                    className="text-sm leading-4 md:text-lg lg:text-xl xl:text-xl font-bold text-textMuted"
+                                    className="text-lg leading-4 md:text-lg lg:text-xl xl:text-xl font-bold text-textMuted"
                                 >
-                                    Suceed!
+                                    Succeed!
                                 </motion.p>
                             </div>
                         </div>
@@ -97,9 +97,9 @@ const LandingPageHero = ({ heroRef, scrollToServices }) => {
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                                 transition={{ duration: 1, delay: 0.25 }}
-                                className="text-4xl md:text-4xl lg:text-5xl xl:text-7xl font-extrabold text-textHeading mt-1 mb-2 text-center md:text-start"
+                                className="text-5xl md:text-4xl lg:text-5xl xl:text-7xl font-extrabold text-textHeading mt-1 mb-2 text-center md:text-start"
                             >
-                                Seamless Solutions for Modern Businessess
+                                Seamless Solutions for Modern Businesses
                             </motion.h1>
 
                         </div>
@@ -109,7 +109,7 @@ const LandingPageHero = ({ heroRef, scrollToServices }) => {
                                 initial={{ opacity: 0, y: 100 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
                                 transition={{ duration: 1, delay: 0.75 }}
-                                className="text-sm leading-4 sm:text-lg md:text-lg xl:text-xl  text-textDisabled opacity-90 mb-1 md:mb-4 text-center md:text-start"
+                                className="text-lg leading-4 sm:text-lg md:text-lg xl:text-xl  text-textDisabled opacity-90 mb-1 md:mb-4 text-center md:text-start"
                             >
                                 Unlock the full potential of your business with our powerful and scalable
                                 software solutions. Designed to streamline processes, boost productivity, and
