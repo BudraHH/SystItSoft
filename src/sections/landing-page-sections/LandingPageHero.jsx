@@ -50,10 +50,10 @@ const LandingPageHero = ({ heroRef, scrollToServices }) => {
                     initial={{ opacity: 0 }}
                     animate={isInView ? { opacity: 1} : {opacity: 0 }}
                     transition={{ duration: 0.75, delay: 0.75}}
-                    className="relative z-10 w-full h-full px-5  lg:px-20 xl:px-28 flex justify-start items-center ">
-                    <div className="w-full md:w-11/12 lg:w-11/12 h-auto flex flex-col justify-center items-center md:items-start p-6 sm:p-2 md:p-5 lg:p-10 rounded-xl text-white">
+                    className="relative z-10 w-full h-full px-  lg:px-20 xl:px-28 flex justify-start items-center ">
+                    <div className="w-full md:w-11/12 lg:w-11/12 h-auto flex flex-col justify-center items-start md:items-start p-6 sm:p-2 md:p-5 lg:p-10 rounded-xl text-white">
                         {/* Animated Heading */}
-                        <div className="flex flex-col justify-center items-center md:flex-row md:justify-start md:items-center md:space-x-2  ">
+                        <div className="flex flex-col justify-center items-start md:flex-row md:justify-start md:items-center gap-2  ">
                             <motion.p
                                 initial={{ opacity: 0, x: -30 }}
                                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
@@ -97,7 +97,7 @@ const LandingPageHero = ({ heroRef, scrollToServices }) => {
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                                 transition={{ duration: 1, delay: 0.25 }}
-                                className="text-5xl md:text-4xl lg:text-5xl xl:text-7xl font-extrabold text-textHeading mt-1 mb-2 text-center md:text-start"
+                                className="text-5xl md:text-4xl lg:text-5xl xl:text-7xl font-extrabold text-textHeading mt-3 mb-4 text-start"
                             >
                                 Seamless Solutions for Modern Businesses
                             </motion.h1>
@@ -109,7 +109,7 @@ const LandingPageHero = ({ heroRef, scrollToServices }) => {
                                 initial={{ opacity: 0, y: 100 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
                                 transition={{ duration: 1, delay: 0.75 }}
-                                className="text-lg  sm:text-lg md:text-lg xl:text-xl  text-textDisabled opacity-90 mb-1 md:mb-4 text-justify"
+                                className="text-lg xl:text-xl  text-textDisabled opacity-90 mb-1 md:mb-4 text-start md:text-justify"
                             >
                                 Unlock the full potential of your business with our powerful and scalable
                                 software solutions. Designed to streamline processes, boost productivity, and
