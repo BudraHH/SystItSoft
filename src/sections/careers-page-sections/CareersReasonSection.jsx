@@ -4,21 +4,18 @@ import { careerReasons } from "../../utils/constants.js";
 
 // ReasonCard Component
 const ReasonCard = ({ title, why, how, index }) => {
-    const cardRef = useRef(null);
-    const isInView = useInView(cardRef, { once: false, amount: 0.6 });
 
     const isEven = index % 2 === 0;
 
     return (
         <div
-            ref={cardRef}
             className={`w-full flex flex-col md:flex-row items-center gap-10 p-6 rounded-xl shadow-lg bg-secondary/20 backdrop-blur-3xl
                 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
         >
             {/* Image Animation */}
             <motion.div
                 initial={{ opacity: 0, x: isEven ? -100 : 100 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.75, ease: "easeOut", delay: 0.2 }}
                 className="w-full md:w-1/2 h-64 md:h-96 lg:h-64 flex items-center justify-center bg-gray-800 rounded-lg"
             >
@@ -29,7 +26,7 @@ const ReasonCard = ({ title, why, how, index }) => {
             <div className="w-full md:w-1/2 flex flex-col justify-start items-start space-y-4 md:space-y-2 lg:space-y-4">
                 <motion.h6
                     initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    animate={{ opacity: 1, y: 0 } }
                     transition={{ duration: 0.75, ease: "easeOut", delay: 0.3 }}
                     className="text-white text-xl font-semibold"
                 >
@@ -38,7 +35,7 @@ const ReasonCard = ({ title, why, how, index }) => {
 
                 <motion.p
                     initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    animate={{ opacity: 1, y: 0 } }
                     transition={{ duration: 0.75, ease: "easeOut", delay: 0.4 }}
                     className="text-gray-400 text-sm md:text-base"
                 >
@@ -51,7 +48,7 @@ const ReasonCard = ({ title, why, how, index }) => {
                         <motion.li
                             key={i}
                             initial={{ opacity: 0, y: 20 }}
-                            animate={isInView ? { opacity: 1, y: 0 } : {}}
+                            animate={{ opacity: 1, y: 0 } }
                             transition={{ duration: 0.75, ease: "easeOut", delay: 0.5 + i * 0.1 }}
                         >
                             {point}
@@ -70,29 +67,20 @@ const CareersReasonSection = () => {
 
     return (
         <section
-            ref={ref}
             className="relative z-20 w-full py-20 flex flex-col items-center justify-start"
         >
             <motion.h3
                 initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                animate={{ opacity: 1, y: 0 } }
                 transition={{ duration: 0.5, ease: "easeIn", delay: 0.2 }}
                 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-16"
             >
-                Why join SystItSoft
-                <motion.span
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
-                    className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-center "
-                >
-                    ?
-                </motion.span>
+                Why join SystItSoft?
             </motion.h3>
 
             <motion.div
                 initial={{ opacity: 0 , y:100}}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                animate={{ opacity: 1, y: 0 } }
                 transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
                 className="w-full flex flex-col space-y-16"
             >

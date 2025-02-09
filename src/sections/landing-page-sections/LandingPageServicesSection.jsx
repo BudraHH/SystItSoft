@@ -114,14 +114,14 @@ const LandingPageServicesSection = ({ servicesRef, scrollToReasons,scrollToHero 
                                         initial={{ opacity: 0, y: 100 }}
                                         animate={cardInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
                                         transition={{ delay: 0.25, duration: 0.25 }}
-                                        className="text-white text-lg md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-start">
+                                        className="text-white text-lg md:text-2xl   font-semibold text-start">
                                         {service.title}
                                     </motion.h6>
                                     <motion.p
                                         initial={{ opacity: 0, y: 100 }}
                                         animate={cardInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
                                         transition={{ delay: 0.5, duration: 0.25 }}
-                                        className="text-xs md:text-lg lg:text-xl xl:text-2xl text-gray-300 leading-relaxed">
+                                        className="text-xs md:text-lg text-gray-300 leading-relaxed">
                                         {service.description}
                                     </motion.p>
                                 </div>

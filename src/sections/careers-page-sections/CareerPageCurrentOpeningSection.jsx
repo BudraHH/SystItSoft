@@ -25,18 +25,15 @@ const CareerPageCurrentOpeningSection = () => {
         );
     });
 
-    const cardRef = useRef(null);
-    const cardInView = useInView(cardRef, { once: true, amount: 0.5 });
 
     return (
         <section
-            // ref={ref}
             className="min-h-screen ">
 
             <motion.section
                 ref={ref}
                 initial={{ opacity: 0, y: 100 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+        animate={{opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="relative z-20 w-full h-full px-5 md:px-10 py-16 flex flex-col items-center justify-start bg-secondary/10 backdrop-blur-3xl rounded-2xl shadow-2xl  space-y-10"
             >
@@ -46,7 +43,7 @@ const CareerPageCurrentOpeningSection = () => {
                 <div className={`z-20 flex flex-col lg:flex-row items-start justify-center lg:items-center lg:justify-between space-y-2 lg:space-y-0 w-full`}>
                     <motion.h2
                         initial={{ opacity: 0, y: 50 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
                         className="text-white text-2xl md:text-4xl lg:text-5xl font-bold text-start lg:w-2/3 "
                     >
@@ -54,7 +51,7 @@ const CareerPageCurrentOpeningSection = () => {
                     </motion.h2>
                     <motion.h6
                         initial={{ opacity: 0, y: 50 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
                         className="text-white text-xs sm:text-sm md:text-lg lg:text-xl font-normal text-start lg:w-1/3">
 
@@ -64,9 +61,7 @@ const CareerPageCurrentOpeningSection = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
                     animate={
-                        isInView
-                            ? { opacity: 1, y: 0 }
-                            : {}
+                        { opacity: 1, y: 0 }
                     }
                     transition={{
                         duration: 0.5,
@@ -110,13 +105,11 @@ const CareerPageCurrentOpeningSection = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
                     animate={
-                        isInView
-                            ? { opacity: 1, y: 0 }
-                            : {}
+                        { opacity: 1, y: 0 }
                     }
                     transition={{
                         duration: 0.5,
-                        delay: 0.75
+                        delay: 0.2
                     }}
                     className="w-full lg:p-4 flex-col space-y-4 r  border border-white/10 backdrop-blur-lg rounded-xl "
                 >
