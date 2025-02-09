@@ -11,7 +11,6 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
-
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -48,5 +47,16 @@
     "prettier-plugin-tailwindcss": "^0.6.9",
     "tailwindcss": "^3.4.17",
     "vite": "^6.0.5"
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BudraHH/SystItSoft.git"
+  },
+  "author": "Hari Hara Budra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BudraHH/SystItSoft/issues"
   }
 }

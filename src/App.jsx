@@ -14,19 +14,12 @@ import ApplyPage from "./pages/ApplyPage.jsx";
 
 function App() {
     const location = useLocation();
+    const isApplyPage = /^\/careers\/apply(\/|$)/.test(location.pathname);
 
-
-
-
-    const isApplyPage = location.pathname.startsWith("/careers/apply");
-    useEffect(() => {
-        setTimeout(() => {
-            window.scrollTo(0, 0);
-        }, 0);  // A small timeout with 0 ms delay can help
-    }, []);
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [location]);
+    }, [location]);  // This ensures it scrolls to top on route change
+
 
 
 
