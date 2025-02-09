@@ -99,7 +99,7 @@ const LandingPageHero = ({ heroRef, scrollToServices }) => {
                                 transition={{ duration: 1, delay: 0.25 }}
                                 className="text-4xl md:text-4xl lg:text-5xl xl:text-7xl font-extrabold text-textHeading mt-1 mb-2 text-center md:text-start"
                             >
-                                Seamless Solutions for Modern Businesses
+                                Seamless Solutions for Modern Businessess
                             </motion.h1>
 
                         </div>
@@ -125,7 +125,7 @@ const LandingPageHero = ({ heroRef, scrollToServices }) => {
                             onClick={scrollToServices}
                         >
 
-                            <StarBorder as="button" className="text-white" componentClassName={`text-xs px-3 py-2 sm:text-sm md:px-5 md:py-2 md:text-sm  bg-gradiant-r from-primary to-tertiary`} color="cyan" speed="5s">
+                            <StarBorder as="button" className="text-white" componentClassName={`text-xs px-4 py-3 sm:text-sm md:px-6 md:py-3  md:text-sm  bg-gradiant-r from-primary to-tertiary`} color="cyan" speed="5s">
                                 Get Started
                             </StarBorder>
 
