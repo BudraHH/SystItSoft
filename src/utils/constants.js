@@ -3,6 +3,8 @@ import purposeImage from "../assets/purposeImage.png"
 import storyImage from "../assets/storyImage.png"
 
 
+
+
 export const navLinks = [
     { id: 1, key: "about-us", ref: "/about-us", label: "about us" },
     // { id: 2, key: "insights", ref: "/insights", label: "insights" },
@@ -33,6 +35,7 @@ export const services = [
         title: "Custom Software Solutions",
         description:
             "We specialize in building custom software, tailored specifically to your operations. From analysis to deployment, we craft solutions that align perfectly with your goals and integrate seamlessly with your existing systems.",
+
     },
     {
         title: "Engineering R&D Solutions",

@@ -20,10 +20,7 @@ const Navbar = ({
     return (
         <div className={`flex ${className}`} id="navbar">
             {navLinks.map(({ id, ref, label,key }) => (
-                <motion.div
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.5 * id }}
+                <div
                     key={id}
                     id={`navbar-item-${id}`}
                     className="relative z-10 flex flex-col items-center space-y-2"
@@ -68,7 +65,7 @@ const Navbar = ({
                             animate="show"
                         ></motion.div>
                     )}
-                </motion.div>
+                </div>
             ))}
         </div>
     );
@@ -127,6 +124,19 @@ const Header = () => {
     }, []);
 
     useEffect(() => {
+        if (showMenu) {
+            document.body.style.overflow = "hidden";  // Disable scrolling
+        } else {
+            document.body.style.overflow = "auto";   // Enable scrolling
+        }
+
+        return () => {
+            document.body.style.overflow = "auto";  // Reset when component unmounts
+        };
+    }, [showMenu]);
+
+
+    useEffect(() => {
         if (!isMobile) {
             setShowMenu(false);
         }
@@ -179,7 +189,7 @@ const Header = () => {
     return (
         <header
             id="header"
-            className={`fixed top-0 z-30 w-full h-20  px-6 md:px-12 py-4 flex flex-row justify-between items-center 
+            className={`fixed right-0 z-30 w-full h-20  px-6 md:px-12 py-4 flex flex-row justify-between items-center 
             ${isScrolled ? "backdrop-blur-sm shadow-md" : "bg-transparent"} text-sm md:text-lg lg:text-xl`}
         >
             {/* Company Logo */}
@@ -205,7 +215,7 @@ const Header = () => {
                     {/* Menu Button - Positioned Right */}
                     <button
                         onClick={handleMenuClick}
-                        className="fixed top-4 right-4 z-50 p-3 flex flex-col justify-center items-center w-12 h-12 bg-transparent border-none outline-none "
+                        className="z-50 p-3 flex flex-col justify-center items-center w-12 h-12 bg-transparent border-none outline-none "
                         aria-label="Toggle sidebar"
                     >
     <span
@@ -221,26 +231,28 @@ const Header = () => {
 
 
                     {/* Sidebar - Animates from Right */}
-                    <motion.div
-                        initial={{x: "100%"}}
-                        animate={{x: showMenu ? "0%" : "100%"}}
-                        transition={{duration: 0.3, ease: "easeInOut"}}
-                        className="fixed top-20 right-0  h-full w-full bg-primary md:w-1/2 shadow-lg p-6 space-y-6 flex flex-col z-50"
-                    >
-                        {/* Navigation Menu */}
-                        <Navbar
-                            className="flex flex-col space-y-4"
-                            itemClassName="w-full flex flex-row justify-between items-center text-lg font-semibold pb-2 "
-                            activeTab={activeTab}
-                            hoveredTab={hoveredTab}
-                            handleTabClick={handleTabClick}
-                            handleTabHover={handleTabHover}
-                            isMobile
-                            handleMenuClick={handleMenuClick}
-                        />
+                    {showMenu && (
+                        <motion.div
+                            initial={{x: "100%"}}
+                            animate={{x: "0%" }}
+                            transition={{duration: 0.3, ease: "easeInOut"}}
+                            className="fixed top-20 right-0  h-full w-full bg-primary md:w-1/2 shadow-lg p-6 space-y-6 flex flex-col z-50"
+                        >
+                            {/* Navigation Menu */}
+                            <Navbar
+                                className="flex flex-col space-y-4"
+                                itemClassName="w-full flex flex-row justify-between items-center text-lg font-semibold pb-2 "
+                                activeTab={activeTab}
+                                hoveredTab={hoveredTab}
+                                handleTabClick={handleTabClick}
+                                handleTabHover={handleTabHover}
+                                isMobile
+                                handleMenuClick={handleMenuClick}
+                            />
 
 
-                    </motion.div>
+                        </motion.div>
+                    )}
                 </div>
             )}
         </header>

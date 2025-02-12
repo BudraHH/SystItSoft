@@ -25,12 +25,18 @@ module.exports = {
           "0%": { transform: "translate(0%, 0%)", opacity: "1" },
           "100%": { transform: "translate(100%, 0%)", opacity: "0" },
         },
+        'border-spin': {
+          '100%': {
+            transform: 'rotate(-360deg)',
+          },
+        },
       },
       animation: {
         shine: "shine 5s linear infinite",
         "star-movement-bottom":
             "star-movement-bottom linear infinite alternate",
         "star-movement-top": "star-movement-top linear infinite alternate",
+        'border-spin': 'border-spin 7s linear infinite',
       },
       colors: {
         primary: "#000d30",

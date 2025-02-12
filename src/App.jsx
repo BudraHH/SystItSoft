@@ -12,6 +12,8 @@ import CareersPage from "./pages/CareersPage.jsx";
 import FAQsPage from "./pages/FAQsPage.jsx";
 import ApplyPage from "./pages/ApplyPage.jsx";
 
+import Aurora from "./utils/Aurora.jsx"
+
 function App() {
     const location = useLocation();
     const isApplyPage = /^\/careers\/apply(\/|$)/.test(location.pathname);
@@ -24,7 +26,7 @@ function App() {
 
 
     return (
-        <div className="relative overflow-hidden w-[100vw] bg-gradient-to-r from-dark via-primary to-dark">
+        <div className="relative  overflow-hidden w-[100vw] bg-gradient-to-r from-dark via-primary to-dark">
             {!isApplyPage && <Header/>}
 
             <Routes>
@@ -40,6 +42,8 @@ function App() {
             </Routes>
 
             {!isApplyPage && <Footer/>}
+
+
         </div>
     );
 }
