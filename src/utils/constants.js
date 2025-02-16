@@ -237,49 +237,46 @@ export const careerReasons = [
 
 export const faqs = [
     {
-        question: "What is our service about?",
-        answer: "We offer innovative solutions to help businesses streamline operations and boost efficiency."
+        category: "Clients",
+        questions: [
+            {
+                question: "What is Systitsof’s service about?",
+                answer: "We provide innovative solutions to help businesses streamline operations, enhance efficiency, and drive growth through technology."
+            },
+            {
+                question: "How can I start using your services?",
+                answer: "You can explore our offerings on our website and contact us for customized solutions tailored to your business needs."
+            },
+            {
+                question: "What makes Systitsof different from larger competitors?",
+                answer: "As a startup, we offer personalized support, agile solutions, and a deep understanding of early-stage business challenges. We prioritize innovation and customer success."
+            },
+            {
+                question: "Do you offer custom solutions for businesses?",
+                answer: "Yes, we specialize in developing tailored solutions to meet your business requirements. Reach out to discuss your needs."
+            }
+        ]
     },
     {
-        question: "How can I start using your services?",
-        answer: "You can explore our offerings on our website and contact us for further details. We are happy to assist with your specific needs."
-    },
-    {
-        question: "How can your service benefit startups?",
-        answer: "As a startup ourselves, we understand the challenges of early-stage businesses. Our solutions help automate processes, reduce costs, and improve efficiency to support your growth."
-    },
-    {
-        question: "Do you offer internship opportunities?",
-        answer: "Yes, we offer internships for students and fresh graduates to gain hands-on experience in tech, marketing, and business development. Visit our careers page for openings."
-    },
-    {
-        question: "What can interns expect at your company?",
-        answer: "Interns at our startup work on real-world projects, collaborate with teams, and gain industry exposure. We focus on skill-building and providing mentorship throughout the internship."
-    },
-    {
-        question: "Is there a possibility of full-time employment after the internship?",
-        answer: "Yes, high-performing interns may be offered full-time roles based on their performance and our business needs."
-    },
-    {
-        question: "Do you provide remote internship opportunities?",
-        answer: "Yes, we offer both in-office and remote internships, depending on the role and project requirements."
-    },
-    {
-        question: "What industries can benefit from your service?",
-        answer: "Our solutions are designed for various industries, including tech, healthcare, finance, and e-commerce. Any startup looking to streamline operations can benefit."
-    },
-    {
-        question: "Do you integrate with other tools and platforms?",
-        answer: "Yes, we support integrations with popular business tools like CRM, project management, and communication apps to ensure a seamless workflow."
-    },
-    {
-        question: "How can I scale my startup using your service?",
-        answer: "Our tools help you automate operations, optimize workflows, and enhance customer engagement, allowing you to focus on business growth."
-    },
-
-    {
-        question: "Why should I choose your startup over larger competitors?",
-        answer: "As a startup, we offer more personalized support, agile solutions, and a deep understanding of early-stage business challenges. We prioritize innovation and customer success."
+        category: "Job Seekers & Interns",
+        questions: [
+            {
+                question: "Does Systitsof offer internship opportunities?",
+                answer: "Yes, we provide internships for students and fresh graduates in technology, marketing, and business development. Check our careers page for openings."
+            },
+            {
+                question: "What roles are available for full-time employment at Systitsof?",
+                answer: "We hire professionals in software development, AI, cybersecurity, marketing, and sales. Open positions are updated on our careers page."
+            },
+            {
+                question: "Why should I consider working at Systitsof?",
+                answer: "We offer a dynamic startup environment with opportunities to innovate, learn, and contribute to impactful projects. Our team values creativity and growth."
+            },
+            {
+                question: "How can I apply for a job or internship at Systitsof?",
+                answer: "You can apply through our official website’s careers section or contact our HR team for more details on the application process."
+            }
+        ]
     }
 ];
 
@@ -331,3 +328,25 @@ export const reasons = [
 export const skillOptions = ["JavaScript", "Python", "React", "Node.js", "Machine Learning", "Cybersecurity"];
 
 
+export const contactSectionCards = [
+    { title: "Customer Support", content: " Our support team is available to assist with any concerns or queries." },
+    { title: "Feedback & Suggestions", content: "We value your feedback and are constantly working to improve SystItSoft Share your thoughts to help us grow!" },
+
+];
+
+
+
+export const descriptionCards = [
+    {
+        title: "Our Vision",
+        quote: "Wherever there is innovation, there should be SYST IT SOFT.",
+        description:
+            "We aim to systematize innovation and accountability to reduce resource wastage and inefficiencies across industries. Our goal is to create a world where every process is optimized through technology, making industries smarter, more efficient, and future-ready."
+    },
+    {
+        title: "Our Mission",
+        quote: "Transforming industries with custom-built, efficient solutions.",
+        description:
+            "Our mission is to provide tailored, technology-driven solutions that enhance efficiency and accountability. Instead of offering generic solutions, we analyze problems from the ground up, ensuring that every solution is custom-built for industry-specific needs. Even small changes can lead to significant transformations."
+    }
+];

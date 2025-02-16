@@ -1,10 +1,8 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState, useEffect, useMemo } from "react";
-import SplitText from "../../utils/SplitText.jsx";
-import StarBorder from "../../utils/StarBorder.jsx";
+import { useRef, useMemo } from "react";
 import { BackgroundBeams } from "../../componenets/BackgroundBeams.jsx";
 
-const LandingPageHero = ({ heroRef, scrollToServices }) => {
+const LandingPageHeroSection = ({ heroRef, scrollToServices }) => {
     const sectionRef = heroRef || useRef(null);
     const isInView = useInView(sectionRef, { once: false, amount: 0.5 });
 
@@ -52,7 +50,7 @@ const LandingPageHero = ({ heroRef, scrollToServices }) => {
                     initial={{ opacity: 0 }}
                     animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                     transition={{ duration: 0.75, delay: 0.75 }}
-                    className="relative z-10 w-full h-full px-  lg:px-20 xl:px-28 flex justify-start items-center ">
+                    className="relative z-10 w-full h-full md:px-12  lg:px-20 xl:px-28 flex justify-start items-center ">
                     <div className="w-full md:w-11/12 lg:w-11/12 h-auto flex flex-col justify-center items-start md:items-start p-6 sm:p-2 md:p-5 lg:p-10 rounded-xl text-white">
                         {/* Animated Heading */}
                         <div className="flex flex-col justify-center items-start md:flex-row md:justify-start md:items-center gap-2">
@@ -127,11 +125,11 @@ const LandingPageHero = ({ heroRef, scrollToServices }) => {
                 className="absolute z-0 text-white/50 w-full h-full text-center flex items-center justify-center"
             >
                 <h1 className="font-extrabold text-[4rem] leading-none md:text-[8rem] lg:text-[12rem] xl:text-[15rem] backdrop-blur-2xl">
-                    Syst It Soft
+                    SYST IT SOFT
                 </h1>
             </motion.div>
         </section>
     );
 };
 
-export default LandingPageHero;
+export default LandingPageHeroSection;

@@ -55,7 +55,7 @@ const Footer = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.5 });
   return (
-    <footer className={`w-full px-5 pt-20 pb-10 bg-dark text-myColors-300`}>
+    <footer className={`w-full px-5 pt-20 pb-10 bg-gradient-to-r from-dark to-dark text-myColors-300`}>
 
       <div className="px-4 mx-auto sm:px-6 lg:px-8  ">
         <motion.hr
@@ -72,7 +72,7 @@ const Footer = () => {
               },
               exit: { opacity: 0, y: 20 },
             }}
-            className={`mb-14 border-t-2 border-tertiary`}
+            className={`mb-14 border-t-2 border-textAccent/50`}
 
         />
           <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-4 gap-y-16 gap-x-12">
@@ -256,7 +256,7 @@ const Footer = () => {
               },
               exit: { opacity: 0, y: 20 },
             }}
-            className={`mt-14 border-t-2 border-tertiary`}
+            className={`mt-14 border-t-2 border-textAccent/50`}
 
           />
         </div>

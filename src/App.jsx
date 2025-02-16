@@ -7,9 +7,7 @@ import Footer from "./sections/Footer.jsx";
 
 import LandingPage from "./pages/LandingPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
-import ContactPage from "./pages/ContactPage.jsx";
 import CareersPage from "./pages/CareersPage.jsx";
-import FAQsPage from "./pages/FAQsPage.jsx";
 import ApplyPage from "./pages/ApplyPage.jsx";
 
 import Aurora from "./utils/Aurora.jsx"
@@ -32,10 +30,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<LandingPage/>}/>
                 <Route path="/about-us" element={<AboutPage/>}/>
-                <Route path="/faqs" element={<FAQsPage/>}/>
                 <Route path="/careers" element={<CareersPage/>}/>
                 <Route path="/careers/apply/:jobId" element={<ApplyPage/>}/>
-                <Route path="/contact-us" element={<ContactPage/>}/>
 
 
 

@@ -3,8 +3,9 @@ import { motion, useInView } from "framer-motion";
 import { reasons } from "../../utils/constants.js";
 import ReasonsDisplay from "../../componenets/ReasonsDisplay.jsx";
 
-const LandingPageReasonsSection = ({ reasonsRef }) => {
+const LandingPageReasonsSection = ({ reasonsRef, scrollToServices,scrollToFaqs }) => {
     const ref = useRef(null);
+    const scrollRef = useRef(null);
     const isInView = useInView(ref, { once: false, amount: 0.2 });
 
     const data = reasons.map(({ title, description, details }) => ({
@@ -31,17 +32,6 @@ const LandingPageReasonsSection = ({ reasonsRef }) => {
         ),
     }));
 
-    const [scrollProgress, setScrollProgress] = useState(0);
-
-    useEffect(() => {
-        const updateScrollProgress = () => {
-            const progress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            setScrollProgress(progress);
-        };
-
-        window.addEventListener("scroll", updateScrollProgress);
-        return () => window.removeEventListener("scroll", updateScrollProgress);
-    }, []);
 
     return (
         <section ref={reasonsRef} className="h-screen backdrop-blur-3xl">
@@ -73,9 +63,9 @@ const LandingPageReasonsSection = ({ reasonsRef }) => {
                     initial={{ opacity: 0, y: 100 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.75 }}
-                    className="w-[90%] h-full md:max-h-[90%] md:overflow-hidden p-5 flex border border-white/10 backdrop-blur-2xl rounded-xl scrollbar-hide"
+                    className="w-[90%]   md:overflow-hidden p-5 pb-10 flex border border-white/10 backdrop-blur-2xl rounded-xl scrollbar-hide"
                 >
-                    <ReasonsDisplay data={data} />
+                    <ReasonsDisplay data={data} scrollToServices={scrollToServices} scrollToFaqs={scrollToFaqs} />
                 </motion.div>
             </motion.section>
         </section>

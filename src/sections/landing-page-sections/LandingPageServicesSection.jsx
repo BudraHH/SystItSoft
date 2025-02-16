@@ -57,6 +57,7 @@ const LandingPageServicesSection = ({ servicesRef, scrollToReasons, scrollToHero
                 event.preventDefault();
 
                 if (scrollProgress === 0 && event.deltaY < 0) {
+                    setScrollProgress(0)
                     scrollToHero();
                     return;
                 }
@@ -85,8 +86,10 @@ const LandingPageServicesSection = ({ servicesRef, scrollToReasons, scrollToHero
     }, [scrollProgress, scrollToReasons, scrollToHero]);
 
     return (
-        <section  className="md:py-20">
-            <motion.section
+        <section
+            ref={servicesRef}
+            className="pt-20 md:py-20">
+            <motion.div
                 ref={sectionRef}
                 initial={{ opacity: 0, y: 100 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
@@ -160,7 +163,7 @@ const LandingPageServicesSection = ({ servicesRef, scrollToReasons, scrollToHero
 
 
 
-            </motion.section>
+            </motion.div>
         </section>
     );
 };
