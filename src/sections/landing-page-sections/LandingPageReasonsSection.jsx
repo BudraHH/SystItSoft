@@ -35,11 +35,9 @@ const LandingPageReasonsSection = ({ reasonsRef, scrollToServices,scrollToFaqs }
 
     return (
         <section ref={reasonsRef} className="h-screen backdrop-blur-3xl">
-            <motion.section
+            <section
                 ref={ref}
-                initial={{ opacity: 0, y: 100 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.2 }}
+
                 className="relative z-20 w-full h-full py-16 flex flex-col items-center justify-start overflow-hidden bg-secondary/10 backdrop-blur-3xl rounded-2xl shadow-2xl space-y-10"
             >
                 <div className="absolute inset-0 w-full h-full bg-[radial-gradient(circle,rgba(0,18,90,0.2)_0%,rgba(0,13,30,0.9)_100%)] backdrop-blur-2xl opacity-60 pointer-events-none" />
@@ -47,7 +45,7 @@ const LandingPageReasonsSection = ({ reasonsRef, scrollToServices,scrollToFaqs }
 
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
                     className="z-40 w-full max-w-[90%] flex flex-col md:flex-row md:justify-between md:items-center space-y-4"
                 >
@@ -61,13 +59,13 @@ const LandingPageReasonsSection = ({ reasonsRef, scrollToServices,scrollToFaqs }
 
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
                     transition={{ duration: 0.5, delay: 0.75 }}
                     className="w-[90%]   md:overflow-hidden p-5 pb-10 flex border border-white/10 backdrop-blur-2xl rounded-xl scrollbar-hide"
                 >
                     <ReasonsDisplay data={data} scrollToServices={scrollToServices} scrollToFaqs={scrollToFaqs} />
                 </motion.div>
-            </motion.section>
+            </section>
         </section>
     );
 };

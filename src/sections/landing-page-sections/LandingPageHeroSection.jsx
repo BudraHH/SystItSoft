@@ -1,8 +1,8 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useMemo } from "react";
+import { useRef, useMemo,memo } from "react";
 import { BackgroundBeams } from "../../componenets/BackgroundBeams.jsx";
 
-const LandingPageHeroSection = ({ heroRef, scrollToServices }) => {
+const LandingPageHeroSection = memo(({ heroRef, scrollToServices }) => {
     const sectionRef = heroRef || useRef(null);
     const isInView = useInView(sectionRef, { once: false, amount: 0.5 });
 
@@ -130,6 +130,6 @@ const LandingPageHeroSection = ({ heroRef, scrollToServices }) => {
             </motion.div>
         </section>
     );
-};
+});
 
 export default LandingPageHeroSection;

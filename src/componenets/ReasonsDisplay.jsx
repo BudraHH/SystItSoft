@@ -87,16 +87,16 @@ const ReasonsDisplay = ({ data, scrollToServices, scrollToFaqs }) => {
                 <div className="h-64"></div>
 
                 {/* Motion div height increases dynamically with scroll progress */}
-                <motion.div
-                    initial={{opacity: 0, x: -100}}
-                    animate={isInView ? {opacity: 1, x: 0} : {opacity: 0, x: -100}}
-                    transition={{ delay: 0.5, duration: 0.5}}
+                <div
                     className={`absolute left-5 top-0 w-[0.5px] md:w-[2px] bg-primary h-full`}>
-                    <motion.div
-                        style={{ height: `${scrollProgress}%`}}
+                    <div
                         className={`absolute inset-x-0 top-0 md:w-1 bg-gradient-to-b from-primary to-textPrimary rounded-full`}
+                        style={{
+                            height: `${scrollProgress}%`,
+                            boxShadow: `0px 0px 10px teal, 0px 0px 20px cyan`, // Added glow effect
+                        }}
                     />
-                </motion.div>
+                </div>
             </div>
         </div>
     );

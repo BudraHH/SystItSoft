@@ -31,9 +31,9 @@ const FAQsSection = ({ faqsRef }) => {
             >
                 {/* Section Heading */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {opacity: 0, y: 100}}
+                    transition={{ delay:0.2,duration: 0.5, ease: "easeOut" }}
                     className="z-40 w-full max-w-[90%] flex flex-col md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0 "
                 >
                     <h2 className="text-2xl md:text-4xl font-extrabold text-white text-left">
@@ -72,47 +72,47 @@ const FAQsSection = ({ faqsRef }) => {
 
 
                 {/* FAQs Section */}
-                <div className="w-full max-w-[90%] space-y-6 sm:space-y-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+                    transition={{ delay:0.5,duration: 0.5, ease: "easeOut" }}
+
+                    className="w-full h-full max-w-[90%] space-y-6 sm:space-y-8">
                     {filteredFAQs.map((faq, index) => {
                         const isOpen = openIndex === index;
                         return (
-                            <motion.div
+                            <div
                                 key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                                transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.1 }}
-                                className="bg-gradient-to-r from-textAccent/50 to-textPrimary/25 rounded-xl p-3 md:p-8 cursor-pointer shadow-lg hover:shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105"
+                                className="bg-gradient-to-r from-textAccent/50 to-textPrimary/25 rounded-xl p-3 md:p-8 cursor-pointer shadow-lg hover:shadow-2xl transition-transform duration-300 ease-in-out"
                                 onClick={() => toggleAnswer(index)}
                             >
-                                <div className="w-full flex justify-between items-start md:items-center ">
-                                    <h3 className="text-lg sm:text-2xl font-semibold text-white flex-1 tracking-tight">
+                                <div className="w-full flex justify-between items-start md:items-center">
+                                    <h3 className="text-lg sm:text-2xl font-semibold text-white flex-1">
                                         Q. {faq.question}
                                     </h3>
-                                    <motion.div
-                                        animate={{ rotate: isOpen ? -180 : 0 }}
-                                        transition={{ duration: 0.3, ease: "easeOut" }}
-                                        className={`h-full py-1`}
+                                    <div
+                                        className={`h-full py-1 transition-transform duration-700 ease-in-out ${
+                                            isOpen ? "-rotate-180" : "rotate-0"
+                                        }`}
                                     >
                                         <FaChevronDown className="text-white text-xl" />
-                                    </motion.div>
+                                    </div>
                                 </div>
 
-                                {/* Answer Section */}
-                                <motion.div
-                                    initial={false}
-                                    animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-                                    transition={{ duration: 0.3, ease: "easeOut" }}
-                                    className="overflow-hidden"
+                                <div
+                                    className={`overflow-hidden transition-max-height duration-300 ease-in-out ${
+                                        isOpen ? "max-h-[500px]" : "max-h-0"
+                                    }`}
                                 >
-                                    <motion.hr className="w-full border-t-2 border-white opacity-20 my-3" />
+                                    <hr className="w-full border-t-2 border-white opacity-20 my-3" />
                                     <p className="text-sm sm:text-lg md:text-xl text-white opacity-90">
                                         {faq.answer}
                                     </p>
-                                </motion.div>
-                            </motion.div>
+                                </div>
+                            </div>
                         );
                     })}
-                </div>
+                </motion.div>
             </motion.section>
         </section>
     );

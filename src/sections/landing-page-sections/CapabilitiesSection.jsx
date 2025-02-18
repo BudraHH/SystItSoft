@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { services } from "../../utils/constants.js";
 
-const LandingPageServicesSection = ({ servicesRef, scrollToReasons, scrollToHero }) => {
+const CapabilitiesSection = ({ servicesRef, scrollToCapabilities, scrollToHero }) => {
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, { once: true, amount: 0.5 });
 
@@ -33,12 +33,14 @@ const LandingPageServicesSection = ({ servicesRef, scrollToReasons, scrollToHero
                 if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
                     container.scrollLeft = 0; // Reset scroll to start
                 } else {
-                    container.scrollLeft += 2; // Adjust speed as needed
+                    container.scrollLeft += 1; // Adjust speed as needed
                 }
-            }, 40);
+            }, 50);
         };
 
-        startAutoScroll();
+        setTimeout(() => {
+            startAutoScroll()
+        },4000)
 
         // Stop scrolling on hover
         container.addEventListener("mouseenter", () => clearInterval(scrollInterval));
@@ -62,7 +64,7 @@ const LandingPageServicesSection = ({ servicesRef, scrollToReasons, scrollToHero
                     return;
                 }
                 if (scrollProgress === 100 && event.deltaY > 0) {
-                    setTimeout(() => scrollToReasons(), 550);
+                    setTimeout(() => scrollToCapabilities(), 550);
                     return;
                 }
 
@@ -83,22 +85,20 @@ const LandingPageServicesSection = ({ servicesRef, scrollToReasons, scrollToHero
                 container.removeEventListener("wheel", handleScroll);
             }
         };
-    }, [scrollProgress, scrollToReasons, scrollToHero]);
+    }, [scrollProgress, scrollToCapabilities, scrollToHero]);
 
     return (
         <section
             ref={servicesRef}
             className="pt-20 md:py-20">
-            <motion.div
+            <div
                 ref={sectionRef}
-                initial={{ opacity: 0, y: 100 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
                 className="relative z-20 w-full h-full md:py-16 bg-secondary/5 backdrop-blur-3xl flex flex-col items-center justify-center overflow-hidden  rounded-2xl shadow-2xl  "
             >
 
                 <div className="w-full max-w-[90%] flex flex-col justify-center items-start space-y-4">
-                    <div className={`w-full flex flex-col md:flex-row md:justify-between md:items-center`}><motion.h2
+                    <div className={`w-full flex flex-col md:flex-row md:justify-between md:items-center`}>
+                        <motion.h2
                         initial={{ opacity: 0, y: 100 }}
                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
                         transition={{ delay: 0.2, duration: 0.25 }}
@@ -107,18 +107,25 @@ const LandingPageServicesSection = ({ servicesRef, scrollToReasons, scrollToHero
                         Capabilities
                     </motion.h2>
                         <motion.p  initial={{ opacity: 0, y: 100 }}
-                                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+                                   animate={isInView ? { opacity: 1, y: 0 }:{ opacity: 0, y: 100 }}
                                    transition={{ delay: 0.2, duration: 0.25 }}
                                    className="text-sm md:text-xl font-light text-white text-left">
                             &#34; We don’t just provide services, we create experiences. &#34;
                         </motion.p></div>
-                    <motion.div
-                        className="hidden md:block h-1 bg-gradient-to-r from-primary to-textPrimary shadow-2xl shadow-textLink rounded-full w-full"
-                        style={{ width: `${scrollProgress}%` }}
+                    <div
+                        className="hidden md:block h-1 bg-textPrimary shadow-2xl shadow-textLink rounded-full w-full"
+                        style={{
+                            width: `${scrollProgress}%`,
+                            boxShadow: `0px 0px 2px transparent, 0px 0px 10px cyan`, // Added glow effect
+                        }}
                     />
                 </div>
 
-                <div ref={scrollRef} className="w-full max-w-[90%] overflow-x-auto flex flex-row flex-nowrap gap-8 py-5 hide-scrollbar">
+                <motion.div ref={scrollRef}
+                            initial={{ opacity: 0, y: 100 }}
+                            animate={isInView ? { opacity: 1, y: 0 }:{ opacity: 0, y: 100 }}
+                            transition={{ delay: 0.3, duration: 0.25 }}
+                            className="w-full max-w-[90%] overflow-x-auto flex flex-row flex-nowrap gap-8 py-5 hide-scrollbar">
                     {services.map((service, index) => {
                         return (
                             <motion.div
@@ -148,7 +155,7 @@ const LandingPageServicesSection = ({ servicesRef, scrollToReasons, scrollToHero
                         );
                     })}
 
-                </div>
+                </motion.div>
 
                 <div className="block md:hidden flex flex-row justify-end items-end w-full  gap-1">
                     {services.map((_, index) => (
@@ -163,9 +170,9 @@ const LandingPageServicesSection = ({ servicesRef, scrollToReasons, scrollToHero
 
 
 
-            </motion.div>
+            </div>
         </section>
     );
 };
 
-export default LandingPageServicesSection;
+export default CapabilitiesSection;

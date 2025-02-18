@@ -6,14 +6,6 @@ const AboutPageHeroSection = ({ heroRef, scrollToDescriptions }) => {
     const sectionRef = heroRef || useRef(null);
     const isInView = useInView(sectionRef, { once: true, amount: 0.5 });
 
-    const particles = useMemo(() => {
-        return Array.from({ length: 20 }).map(() => ({
-            x: `${Math.random() * 100}%`,
-            y: `${Math.random() * 100}%`,
-            size: `${Math.random() * 10 + 3}px`,
-            delay: `${Math.random() * 4}s`,
-        }));
-    }, []);
 
     return (
         <section ref={sectionRef} className="relative  md:h-screen flex justify-center items-center">
@@ -26,9 +18,9 @@ const AboutPageHeroSection = ({ heroRef, scrollToDescriptions }) => {
                 <div className="absolute inset-0 w-full h-full bg-[radial-gradient(circle,rgba(0,18,90,0.2)_0%,rgba(0,13,30,0.9)_100%)] backdrop-blur-2xl opacity-60 pointer-events-none" />
                 <div className="absolute inset-0 bg-primary10 opacity-50 pointer-events-none" />
 
-                <div className="relative z-10 w-full h-full p-5 lg:p-20 xl:p-28 flex flex-col space-y-6 md:space-y-0 md:flex-row justify-start items-center">
+                <div className="relative z-10 w-full  h-full p-5 lg:p-20 lg:gap-10 xl:p-28 flex flex-col space-y-6 md:space-y-0 md:flex-row justify-start items-center">
                     {/* Left Side Content */}
-                    <div className="relative w-full h-full lg:w-1/2 flex flex-col justify-start items-start space-y-6">
+                    <div className="relative w-full h-full   flex flex-col justify-start items-start space-y-6">
                         <motion.h1
                             initial={{ opacity: 0, y: -100 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -105,9 +97,9 @@ const AboutPageHeroSection = ({ heroRef, scrollToDescriptions }) => {
                         initial={{ opacity: 0, x: 150 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-                        className="absolute -z-2 md:relative w-full lg:w-1/2 h-full flex justify-center items-center"
+                        className="absolute -z-2 md:relative md:z-10  w-full  h-full flex justify-center items-center"
                     >
-                        <div className="relative w-full md:w-[90%] h-[400px] lg:h-[500px] bg-gray-800 rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                        <div className="relative w-full  h-[400px] lg:h-[500px] bg-gray-800 rounded-xl overflow-hidden shadow-xl border border-gray-700">
                             <div className="absolute inset-0 bg-gradient-to-br from-textPrimary to-textAccent opacity-50"></div>
                             <motion.img
                                 src="https://source.unsplash.com/600x400/?technology,team"

@@ -350,3 +350,31 @@ export const descriptionCards = [
             "Our mission is to provide tailored, technology-driven solutions that enhance efficiency and accountability. Instead of offering generic solutions, we analyze problems from the ground up, ensuring that every solution is custom-built for industry-specific needs. Even small changes can lead to significant transformations."
     }
 ];
+
+
+export const ourValues = [
+    {
+        title: "Innovation First",
+        description: "We prioritize cutting-edge solutions to real-world challenges.",
+    },
+    {
+        title: "Accountability Matters",
+        description: "Our solutions bring transparency and efficiency.",
+    },
+    {
+        title: "Scalability & Growth",
+        description: "We build technology that grows with your business.",
+    },
+    {
+        title: "Customer Centricity",
+        description: "We focus on understanding and meeting our customers' needs.",
+    },
+    {
+        title: "Integrity and Trust",
+        description: "We uphold the highest ethical standards in all our interactions.",
+    },
+    {
+        title: "Collaboration and Teamwork",
+        description: "We believe in the power of working together to achieve shared goals.",
+    },
+];

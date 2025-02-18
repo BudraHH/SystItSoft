@@ -67,22 +67,22 @@ const CareerPageCurrentOpeningSection = () => {
                         duration: 0.5,
                         delay: 0.75
                     }}
-                    className="w-full lg:p-4 gap-4 flex flex-col lg:flex-row justify-between items-center border border-white/10 backdrop-blur-lg rounded-xl "
+                    className="w-full gap-4 flex flex-col lg:flex-row justify-between items-center rounded-xl "
                 >
                     <div className={`w-full lg:w-[50%] bg-white rounded-lg flex justify-between items-center`}>
                         <input type={`text`} value={searchText}
                                onChange={(e) => setSearchText(e.target.value || "")} placeholder={`Enter key words..`}
-                               className={`w-full px-3 py-1 md:py-2 bg-transparent  focus:outline-none text-textPrimary`}/>
+                               className={`w-full px-3 py-2 lg:py-3 bg-transparent  focus:outline-none text-textPrimary`}/>
                         <div className={`h-full  text-textPrimary py-1 md:py-2 px-3 md:px-5 text-2xl border-l hover:bg-textSubtle hover:text-white cursor-pointer rounded-r-lg`}>
                             <CiSearch size={25} />
                         </div>
                     </div>
 
-                        <div className={`flex flex-row items-center justify-center gap-1 md:gap-5`}>
+                        <div className={`w-full lg:w-1/3 flex flex-row items-center justify-between lg:justify-center gap-1 md:gap-5`}>
                             {/* Job Type Select */}
                             <select value={selectType}
                                     onChange={(e) => setSelectType(e.target.value)}
-                                    className="w-[50%] md:w-auto h-full md:px-4 py-2 md:py-3 bg-white text-textPrimary rounded-lg shadow-lg focus:outline-none cursor-pointer">
+                                    className="w-full h-full md:px-4 py-2 md:py-3 bg-white text-textPrimary rounded-lg shadow-lg focus:outline-none cursor-pointer">
                                 <option value={""}>--select type--</option>
                                 <option value="intern" >Intern</option>
                                 <option value="full-time">Full Time</option>
@@ -92,7 +92,7 @@ const CareerPageCurrentOpeningSection = () => {
                             <select
                                 value={selectLocation}
                                 onChange={(e) => setSelectLocation(e.target.value)}
-                                className="w-[50%] md:w-auto md:px-4 py-2 md:py-3 bg-white text-textPrimary rounded-lg shadow-lg focus:outline-none cursor-pointer">
+                                className="w-full md:px-4 py-2 md:py-3 bg-white text-textPrimary rounded-lg shadow-lg focus:outline-none cursor-pointer">
                                 <option value={""}>--select location--</option>
                                 <option value="remote">Remote</option>
                                 <option value="on-site">On-Site</option>
@@ -111,7 +111,7 @@ const CareerPageCurrentOpeningSection = () => {
                         duration: 0.5,
                         delay: 0.2
                     }}
-                    className="w-full lg:p-4 flex-col space-y-4 r  border border-white/10 backdrop-blur-lg rounded-xl "
+                    className="w-full  flex-col space-y-4  backdrop-blur-lg rounded-xl "
                 >
                     {filteredJobs.length > 0 ? (
                         filteredJobs.map((job) => {
@@ -133,7 +133,13 @@ const CareerPageCurrentOpeningSection = () => {
                                                     <Link to={`/careers/apply/${job.id}`} className="hidden lg:block px-6 py-2 text-white font-bold bg-textLink rounded-lg ">Apply</Link>
 
                                                 )}
-                                                {showJobBrief === job.id ? <FaChevronUp className={`text-textLight`}/> : <FaChevronDown className={`text-textLight`}/>}
+                                                <motion.div
+                                                    animate={{ rotate: showJobBrief === job.id ? -180 : 0 }}
+                                                    transition={{ duration: 0.3, ease: "easeOut" }}
+                                                    className={`h-full py-1`}
+                                                >
+                                                    <FaChevronDown className="text-white text-xl" />
+                                                </motion.div>
                                             </div>
                                         </div>
 

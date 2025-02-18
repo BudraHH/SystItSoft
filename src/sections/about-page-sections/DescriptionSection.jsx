@@ -1,39 +1,35 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect,memo } from "react";
 import { motion, useInView } from "framer-motion";
 import {FaChevronDown, FaChevronUp} from "react-icons/fa";
 import {descriptionCards} from "../../utils/constants.js";
 
 
-const Card = ({ data, ref }) => {
+const Card = memo(({ data, ref }) => {
     return (
         <motion.div
             ref={ref}
-            className="w-full h-full p-8 md:p-12 lg:p-16 rounded-xl shadow-lg text-white text-left md:text-left  flex flex-col gap-4"
+            className="w-full h-full p-8 md:p-12 lg:p-16 rounded-xl shadow-lg text-white text-left md:text-left flex flex-col gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
         >
-            {/* Title */}
-            <div>
-                <motion.h2
-                    className="text-2xl md:text-3xl xl:text-4xl font-extrabold tracking-tight text-textLight mb-1 md:mb-4"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                >
-                    {data.title}
-                </motion.h2>
-                <motion.div
-                    className="h-1 w-[7.75rem] md:w-44 lg:w-56 xl:w-[11.5rem] bg-textPrimary rounded-full "
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                />
-            </div>
-            {/* Quote */}
+            <motion.h2
+                className="text-2xl md:text-3xl xl:text-4xl font-extrabold tracking-tight text-textLight"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+            >
+                {data.title}
+            </motion.h2>
+            <motion.div
+                className="h-1 w-full bg-textPrimary rounded-full"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+            />
             {data.quote && (
                 <motion.p
-                    className="text-sm md:text-lg lg:text-xl italic font-semibold text-gray-300 "
+                    className="text-sm md:text-lg lg:text-xl italic font-semibold text-gray-300"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
@@ -41,11 +37,7 @@ const Card = ({ data, ref }) => {
                     &quot; {data.quote} &quot;
                 </motion.p>
             )}
-
-            {/* Placeholder for Image or Additional Content */}
-            <div className="w-full h-[90%] lg:h-[60%] bg-gray-700  rounded-xl"></div>
-
-            {/* Description */}
+            <div className="w-full h-[90%] lg:h-[60%] bg-gray-700 rounded-xl"></div>
             <motion.p
                 className="text-sm md:text-lg text-gray-300 leading-relaxed"
                 initial={{ opacity: 0, y: 10 }}
@@ -56,10 +48,9 @@ const Card = ({ data, ref }) => {
             </motion.p>
         </motion.div>
     );
-};
+});
 
-
-const DescriptionSection = ({ descriptionRef, scrollToHero}) => {
+const DescriptionSection = memo(({ descriptionRef, scrollToHero}) => {
     const ref = useRef(null);
     const scrollRef = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.1 });
@@ -110,7 +101,7 @@ const DescriptionSection = ({ descriptionRef, scrollToHero}) => {
                 initial={{ opacity: 0, y: 100 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="relative z-20 w-full h-full md:py-16 flex flex-col lg:flex-row items-center justify-start overflow-hidden bg-secondary/10 backdrop-blur-3xl rounded-2xl shadow-2xl space-y-5 md:spacey-0 md:space-x-10"
+                className="relative z-20 w-full h-full md:py-16 lg:px-10 gap-10 flex flex-col lg:flex-row  items-center justify-start lg:justify-between overflow-hidden bg-secondary/10 backdrop-blur-3xl rounded-2xl shadow-2xl "
             >
                 <div className="absolute inset-0 w-full h-full bg-[radial-gradient(circle,rgba(0,18,90,0.2)_0%,rgba(0,13,30,0.9)_100%)] backdrop-blur-2xl opacity-60 pointer-events-none" />
                 <div className="absolute inset-0 bg-primary10 opacity-50 pointer-events-none" />
@@ -121,13 +112,11 @@ const DescriptionSection = ({ descriptionRef, scrollToHero}) => {
                     initial={{ opacity: 0, y:0 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
-                    className="w-[90%] max-w-5xl h-full  p-8 md:p-12 lg:p-16 border border-white/10 bg-gradient-to-r from-textPrimary/5 to-textDisabled/5 backdrop-blur-xl rounded-2xl shadow-xl text-left"
+                    className="w-1/2 h-full  p-8 md:p-12 lg:p-14  border border-white/10 bg-gradient-to-r from-textPrimary/5 to-textDisabled/5 backdrop-blur-xl rounded-2xl shadow-xl text-left"
                 >
-                    {/* Section Title */}
-                    <div className="w-full flex flex-col items-start ">
-                        {/* Section Title */}
+
                         <motion.h2
-                            className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight text-left md:text-left mb-4 text-white"
+                            className="w-1/2 text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight text-left md:text-left mb-4 text-white"
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
@@ -137,12 +126,12 @@ const DescriptionSection = ({ descriptionRef, scrollToHero}) => {
 
                         {/* Animated Divider */}
                         <motion.div
-                            className="h-1 w-36 md:w-44 lg:w-56 xl:w-72 bg-textPrimary rounded-full mb-6"
+                            className="h-1 w-full  bg-textPrimary rounded-full mb-6"
                             initial={{ scaleX: 0 }}
                             animate={{ scaleX: 1 }}
                             transition={{ duration: 0.6, delay: 0.3 }}
                         />
-                    </div>
+
 
                     {/* Description Text */}
                     <motion.p
@@ -169,7 +158,7 @@ const DescriptionSection = ({ descriptionRef, scrollToHero}) => {
                         <span className="text-sm md:text-xl text-textLight  font-semibold"> innovative technologies</span>, ensuring businesses optimize their resources and scale effortlessly.
                     </motion.p>
                 </motion.div>
-                <div className={`relative w-[90%] h-full`}>
+                <div className={`relative w-1/2 h-full  `}>
                     <motion.div
                         initial={{ opacity: 0, y: 100 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -206,6 +195,7 @@ const DescriptionSection = ({ descriptionRef, scrollToHero}) => {
             </motion.section>
         </section>
     );
-};
 
+}
+);
 export default DescriptionSection;
