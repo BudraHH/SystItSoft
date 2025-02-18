@@ -1,3 +1,4 @@
+"use client";
 import { motion, useInView } from "framer-motion";
 import { useRef, useMemo } from "react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
@@ -8,24 +9,24 @@ const AboutPageHeroSection = ({ heroRef, scrollToDescriptions }) => {
 
 
     return (
-        <section ref={sectionRef} className="relative  md:h-screen flex justify-center items-center">
+        <section ref={sectionRef} className="relative  lg:h-screen flex justify-center items-center">
             <motion.section
                 initial={{ scale: 1.2, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                className="relative z-20 w-full md:h-[80vh] mt-24 mb-10 flex flex-col items-center justify-center overflow-hidden bg-slate-500/5 backdrop-blur-3xl rounded-3xl shadow-2xl"
+                className="relative z-20 w-full lg:h-[80vh] mt-24 mb-10 flex flex-col items-center justify-center overflow-hidden bg-slate-500/5 backdrop-blur-3xl rounded-3xl shadow-2xl"
             >
                 <div className="absolute inset-0 w-full h-full bg-[radial-gradient(circle,rgba(0,18,90,0.2)_0%,rgba(0,13,30,0.9)_100%)] backdrop-blur-2xl opacity-60 pointer-events-none" />
                 <div className="absolute inset-0 bg-primary10 opacity-50 pointer-events-none" />
 
-                <div className="relative z-10 w-full  h-full p-5 lg:p-20 lg:gap-10 xl:p-28 flex flex-col space-y-6 md:space-y-0 md:flex-row justify-start items-center">
+                <div className="relative z-10 w-full  h-full p-5 lg:p-20 lg:gap-10 xl:p-28 flex flex-col space-y-6 lg:space-y-0 lg:flex-row lg:justify-center lg:items-center justify-start items-center">
                     {/* Left Side Content */}
                     <div className="relative w-full h-full   flex flex-col justify-start items-start space-y-6">
                         <motion.h1
                             initial={{ opacity: 0, y: -100 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
-                            className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-white mb-10 md:mb-0"
+                            className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-white mb-0"
                         >
                             About{" "}
                             <span className="text-white/50 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight">
@@ -63,7 +64,7 @@ const AboutPageHeroSection = ({ heroRef, scrollToDescriptions }) => {
                         </motion.p>
 
                         {/* CTA & Social Media Links */}
-                        <div className="flex flex-col md:flex-row items-center gap-5">
+                        <div className="flex flex-row items-center gap-5">
                             <motion.div
                                 initial={{ opacity: 0, y: 100 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -97,9 +98,9 @@ const AboutPageHeroSection = ({ heroRef, scrollToDescriptions }) => {
                         initial={{ opacity: 0, x: 150 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-                        className="absolute -z-2 md:relative md:z-10  w-full  h-full flex justify-center items-center"
+                        className=" w-full  h-full flex justify-center items-center"
                     >
-                        <div className="relative w-full  h-[400px] lg:h-[500px] bg-gray-800 rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                        <div className="relative w-full  h-[300px] md:h-[400px] lg:h-full bg-gray-800 rounded-xl overflow-hidden shadow-xl border border-gray-700">
                             <div className="absolute inset-0 bg-gradient-to-br from-textPrimary to-textAccent opacity-50"></div>
                             <motion.img
                                 src="https://source.unsplash.com/600x400/?technology,team"

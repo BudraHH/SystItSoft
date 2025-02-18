@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+"use client";
+import { useState,} from "react";
 import { motion, useInView } from "framer-motion";
 import {MdMail} from "react-icons/md";
 import {IoCall} from "react-icons/io5";
@@ -37,7 +38,7 @@ const ContactFormSection = ({ formRef }) => {
     return (
         <section
             ref={sectionRef}
-            className="h-screen md:py-20 flex justify-center ">
+            className="min-h-screen md:py-20 flex justify-center ">
             <motion.div
                 initial={{ opacity: 0, y: 100 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
@@ -49,7 +50,7 @@ const ContactFormSection = ({ formRef }) => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                     transition={{ duration: 0.8 }}
-                    className="text-2xl md:text-4xl font-extrabold text-white text-left"
+                    className="text-3xl md:text-4xl font-extrabold text-white text-left tracking-tight"
                 >
                     We’d love to hear from you!
                 </motion.h2>
@@ -62,8 +63,8 @@ const ContactFormSection = ({ formRef }) => {
                     Drop us a message with any questions, inquiries, or business proposals.
                 </motion.p>
             </div>
-            <hr className="block md:hidden my-4 w-full opacity-50" />
-            <div className={`w-full h-full flex flex-col md:flex-row md:justify-between  gap-5`}>
+            <hr className="block lg:hidden my-4 w-full opacity-20" />
+            <div className={`w-full h-full flex flex-col lg:flex-row md:justify-between  gap-5`}>
                 <motion.div
 
                     className="w-full   md:py-8 space-y-6 text-white"
@@ -94,11 +95,11 @@ const ContactFormSection = ({ formRef }) => {
 
 
 
-                    <hr className="block md:hidden my-4 w-full opacity-50" />
+                    <hr className="block lg:hidden my-4 w-full opacity-20" />
                 </motion.div>
 
                 <motion.form
-                    className="w-full   h-full md:bg-gray-800 bg-opacity-30 backdrop-blur-md md:p-8 rounded-xl shadow-lg  space-y-6"
+                    className="w-full   h-full md:bg-white/5 border border-white/10 bg-opacity-30 backdrop-blur-md md:p-8 rounded-xl shadow-lg  space-y-6"
                     onSubmit={handleSubmit}
                     initial={{ opacity: 0, y: 30 }}
                     animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -113,7 +114,7 @@ const ContactFormSection = ({ formRef }) => {
                             <input
                                 type="text"
                                 id="firstName"
-                                className="bg-textLight text-textAccent border border-textPrimary focus:border-textPrimary/50  focus:text-textPrimary rounded-lg px-4 py-2 outline-none transition"
+                                className="bg-white text-textPrimary border border-textPrimary focus:border-textPrimary/50  focus:text-textAccent rounded-lg px-4 py-2 outline-none transition"
                                 placeholder="John"
                                 required
                                 value={formData.firstName}
@@ -129,7 +130,7 @@ const ContactFormSection = ({ formRef }) => {
                             <input
                                 type="text"
                                 id="lastName"
-                                className="bg-textLight text-textAccent border border-textPrimary focus:border-textPrimary/50  focus:text-textPrimary rounded-lg px-4 py-2 outline-none transition"
+                                className="bg-white text-textPrimary border border-textPrimary focus:border-textPrimary/50  focus:text-textAccent rounded-lg px-4 py-2 outline-none transition"
                                 placeholder="Doe"
                                 required
                                 value={formData.lastName}
@@ -145,7 +146,7 @@ const ContactFormSection = ({ formRef }) => {
                             <input
                                 type="email"
                                 id="email"
-                                className="bg-textLight text-textAccent border border-textPrimary focus:border-textPrimary/50  focus:text-textPrimary rounded-lg px-4 py-2 outline-none transition"
+                                className="bg-white text-textPrimary border border-textPrimary focus:border-textPrimary/50  focus:text-textAccent rounded-lg px-4 py-2 outline-none transition"
                                 placeholder="example@mail.com"
                                 required
                                 value={formData.email}
@@ -161,7 +162,7 @@ const ContactFormSection = ({ formRef }) => {
                             <input
                                 type="tel"
                                 id="phoneNumber"
-                                className="bg-textLight text-textAccent border border-textPrimary focus:border-textPrimary/50  focus:text-textPrimary rounded-lg px-4 py-2 outline-none transition"
+                                className="bg-white text-textPrimary border border-textPrimary focus:border-textPrimary/50  focus:text-textAccent rounded-lg px-4 py-2 outline-none transition"
                                 placeholder="+1 234 567 890"
                                 required
                                 value={formData.phoneNumber}
@@ -176,7 +177,7 @@ const ContactFormSection = ({ formRef }) => {
                             </label>
                             <textarea
                                 id="message"
-                                className="bg-textLight text-textAccent border border-textPrimary focus:border-textPrimary/50 custom-scrollbar focus:text-textPrimary rounded-lg px-4 py-2 outline-none transition"
+                                className="bg-white text-textPrimary border border-textPrimary focus:border-textPrimary/50  focus:text-textAccent rounded-lg px-4 py-2 outline-none transition"
                                 placeholder="Type your message here..."
                                 rows={5}
                                 required
@@ -189,7 +190,7 @@ const ContactFormSection = ({ formRef }) => {
                     {/* Submit Button */}
                     <motion.button
                         type="submit"
-                        className="w-full text-white bg-textPrimary  font-semibold p-3 md:p-4 rounded-lg transition transform hover:scale-105 active:scale-95 shadow-md"
+                        className="w-full text-white bg-textPrimary brightness-75 hover:brightness-100 font-semibold p-3 md:p-4 rounded-lg transition transform hover:scale-105 active:scale-95 shadow-md"
                         aria-label="Submit the form"
                         whileHover={{ scale: 1.005 }}
                         whileTap={{ scale: 0.95 }}

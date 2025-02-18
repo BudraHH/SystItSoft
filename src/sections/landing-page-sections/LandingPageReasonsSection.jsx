@@ -45,7 +45,7 @@ const LandingPageReasonsSection = ({ reasonsRef, scrollToServices,scrollToFaqs }
 
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
-                    animate={isInView ? { opacity: 1, y: 0 } :{ opacity: 1, y: 0 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0.75, y: 1 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
                     className="z-40 w-full max-w-[90%] flex flex-col md:flex-row md:justify-between md:items-center space-y-4"
                 >
@@ -59,7 +59,7 @@ const LandingPageReasonsSection = ({ reasonsRef, scrollToServices,scrollToFaqs }
 
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0.75, y: 1 }}
                     transition={{ duration: 0.5, delay: 0.75 }}
                     className="w-[90%]   md:overflow-hidden px-2 md:p-5  flex border border-white/10 backdrop-blur-2xl rounded-xl scrollbar-hide"
                 >

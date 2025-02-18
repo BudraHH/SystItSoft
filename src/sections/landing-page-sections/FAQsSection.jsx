@@ -1,3 +1,4 @@
+"use client";
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaChevronDown } from "react-icons/fa";
