@@ -1,4 +1,4 @@
-import { useRef, useCallback } from "react";
+import {useRef, useCallback, useEffect} from "react";
 import AboutPageHeroSection from "../sections/about-page-sections/AboutPageHeroSection.jsx";
 import DescriptionSection from "../sections/about-page-sections/DescriptionSection.jsx";
 import OurValues from "../sections/about-page-sections/OurValues.jsx";
@@ -9,6 +9,13 @@ const AboutPage = () => {
     const descriptionsRef = useRef(null);
     const valuesRef = useRef(null);
     const contactFormRef = useRef(null);
+
+
+    useEffect(() => {
+        if (location.hash === '#contact-us' && contactFormRef.current ){
+            contactFormRef.current?.scrollIntoView({ behavior: "smooth" });
+        }
+    },[location]);
 
     // Memoize scroll functions to prevent unnecessary re-renders of child components
     const scrollToHero = useCallback(() => {

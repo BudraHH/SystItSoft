@@ -1,8 +1,7 @@
-import { Link, useLocation } from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import { useEffect, useState, useCallback } from "react";
 import { navLinks } from "../utils/constants.js";
 import { motion } from "framer-motion";
-import { CgClose, CgMenu } from "react-icons/cg";
 import { fadeIn } from "../utils/motion.js";
 import { FaAngleRight } from "react-icons/fa";
 import logo from "../assets/logo.png";
@@ -17,9 +16,10 @@ const Navbar = ({
                     isMobile,
                     handleMenuClick
                 }) => {
+    const navigate = useNavigate();
     return (
         <div className={`flex ${className}`} id="navbar">
-            {navLinks.map(({ id, ref, label,key }) => (
+            {navLinks.map(({ id, ref, label,key,hash }) => (
                 <div
                     key={id}
                     id={`navbar-item-${id}`}
@@ -27,8 +27,12 @@ const Navbar = ({
                     onClick={() => {
                         handleTabClick(id);
                         if (isMobile) {
-                            handleMenuClick()
+                            handleMenuClick();
                         }
+                        if (hash) {
+                            navigate(`/${ref}/${hash}`); // Navigate with hash
+                        }
+
                     }}
                     onMouseEnter={() => handleTabHover(id)}
                     onMouseLeave={() => handleTabHover(null)}
@@ -67,6 +71,7 @@ const Navbar = ({
                     )}
                 </div>
             ))}
+
         </div>
     );
 };
@@ -123,17 +128,7 @@ const Header = () => {
         return () => window.removeEventListener("resize", checkResolution);
     }, []);
 
-    useEffect(() => {
-        if (showMenu) {
-            document.body.style.overflow = "hidden";  // Disable scrolling
-        } else {
-            document.body.style.overflow = "auto";   // Enable scrolling
-        }
 
-        return () => {
-            document.body.style.overflow = "auto";  // Reset when component unmounts
-        };
-    }, [showMenu]);
 
 
 
@@ -164,20 +159,26 @@ const Header = () => {
     }, []);
 
     const activeTabName = useLocation().pathname.toString();
+    const location = useLocation();
 
     useEffect(() => {
         const findActiveTabId = (key) => {
             return navLinks.find((link) => link.ref === key)?.id || null;
         };
 
-        if (activeTabName) {
+        if (activeTabName && activeTabName !== "/") {
             setActiveTab(findActiveTabId(activeTabName));
+        } else if (activeTabName === "/" && location.hash) {
+            setActiveTab(findActiveTabId(activeTabName));
+        } else {
+            setActiveTab(null);
         }
-    }, [activeTabName]);
+    }, [activeTabName, location.hash]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
 
 
 

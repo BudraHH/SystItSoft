@@ -90,28 +90,27 @@ const CapabilitiesSection = ({ servicesRef, scrollToCapabilities, scrollToHero }
     return (
         <section
             ref={servicesRef}
-            className="pt-20 md:py-20">
+            className="pt-5 md:pt-0 lg:py-20">
             <div
                 ref={sectionRef}
                 className="relative z-20 w-full h-full md:py-16 bg-secondary/5 backdrop-blur-3xl flex flex-col items-center justify-center overflow-hidden  rounded-2xl shadow-2xl  "
             >
 
                 <div className="w-full max-w-[90%] flex flex-col justify-center items-start space-y-4">
-                    <div className={`w-full flex flex-col md:flex-row md:justify-between md:items-center`}>
-                        <motion.h2
+                    <motion.div
                         initial={{ opacity: 0, y: 100 }}
                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
                         transition={{ delay: 0.2, duration: 0.25 }}
+                        className={`w-full flex flex-col md:flex-row md:justify-between md:items-center`}>
+                        <h2
+
                         className="text-3xl md:text-4xl font-extrabold text-white text-left"
                     >
                         Capabilities
-                    </motion.h2>
-                        <motion.p  initial={{ opacity: 0, y: 100 }}
-                                   animate={isInView ? { opacity: 1, y: 0 }:{ opacity: 0, y: 100 }}
-                                   transition={{ delay: 0.2, duration: 0.25 }}
-                                   className="text-sm md:text-xl font-light text-white text-left">
+                    </h2>
+                        <p  className="w-auto md:w-1/2    text-sm md:text-xl font-light text-white text-left md:text-right">
                             &#34; We don’t just provide services, we create experiences. &#34;
-                        </motion.p></div>
+                        </p></motion.div>
                     <div
                         className="hidden md:block h-1 bg-textPrimary shadow-2xl shadow-textLink rounded-full w-full"
                         style={{
@@ -176,3 +175,6 @@ const CapabilitiesSection = ({ servicesRef, scrollToCapabilities, scrollToHero }
 };
 
 export default CapabilitiesSection;
+
+
+

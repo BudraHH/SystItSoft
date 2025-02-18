@@ -13,7 +13,7 @@ const ContactFormSection = ({ formRef }) => {
     });
 
     // Use ref inside the component if useInView is needed
-    const sectionRef = formRef || useRef(null);
+    const sectionRef = formRef;
     const inView = useInView(sectionRef, { once: false, amount: 0.1});
 
     const handleChange = (e) => {
@@ -35,9 +35,10 @@ const ContactFormSection = ({ formRef }) => {
     };
 
     return (
-        <section className="">
+        <section
+            ref={sectionRef}
+            className="h-screen md:py-20 flex justify-center ">
             <motion.div
-                ref={sectionRef}
                 initial={{ opacity: 0, y: 100 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
                 transition={{ duration: 0.5, delay: 0.2 }}

@@ -10,7 +10,6 @@ import AboutPage from "./pages/AboutPage.jsx";
 import CareersPage from "./pages/CareersPage.jsx";
 import ApplyPage from "./pages/ApplyPage.jsx";
 
-import Aurora from "./utils/Aurora.jsx"
 
 function App() {
     const location = useLocation();
@@ -25,7 +24,7 @@ function App() {
 
     return (
         <div className="relative  overflow-hidden w-[100vw] bg-gradient-to-r from-dark via-primary to-dark">
-            {!isApplyPage && <Header/>}
+            {!isApplyPage && <Header />}
 
             <Routes>
                 <Route path="/" element={<LandingPage/>}/>

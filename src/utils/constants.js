@@ -5,12 +5,12 @@ import storyImage from "../assets/storyImage.png"
 
 
 
+// src/utils/constants.js
 export const navLinks = [
     { id: 1, key: "about-us", ref: "/about-us", label: "about us" },
-    // { id: 2, key: "insights", ref: "/insights", label: "insights" },
-    { id: 3, key: "faqs", ref: "/faqs", label: "faqs"   },
-    { id: 4,  key: "careers", ref: "/careers", label: "careers" },
-    { id: 5, key: "contact-us", ref: "/contact-us", label: "contact us" },
+    { id: 2, key: "careers", ref: "/careers", label: "careers" },
+    { id: 3, key: "faqs", ref: "/", label: "faqs", hash: "#faqs" }, // Added hash
+    { id: 4, key: "contact-us", ref: "/about-us", label: "contact us", hash: "#contact-us" },
 ];
 
 export const additionalNavLinks = [

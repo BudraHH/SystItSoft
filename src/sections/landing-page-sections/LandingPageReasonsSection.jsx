@@ -1,12 +1,12 @@
-import { useRef, useState, useEffect } from "react";
+"use client";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { reasons } from "../../utils/constants.js";
 import ReasonsDisplay from "../../componenets/ReasonsDisplay.jsx";
 
 const LandingPageReasonsSection = ({ reasonsRef, scrollToServices,scrollToFaqs }) => {
-    const ref = useRef(null);
-    const scrollRef = useRef(null);
-    const isInView = useInView(ref, { once: false, amount: 0.2 });
+    const sectionRef = reasonsRef || useRef(null);
+    const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
 
     const data = reasons.map(({ title, description, details }) => ({
         title,
@@ -34,9 +34,9 @@ const LandingPageReasonsSection = ({ reasonsRef, scrollToServices,scrollToFaqs }
 
 
     return (
-        <section ref={reasonsRef} className="h-screen backdrop-blur-3xl">
+        <section ref={sectionRef} className="min-h-screen ">
             <section
-                ref={ref}
+                ref={sectionRef}
 
                 className="relative z-20 w-full h-full py-16 flex flex-col items-center justify-start overflow-hidden bg-secondary/10 backdrop-blur-3xl rounded-2xl shadow-2xl space-y-10"
             >
@@ -45,23 +45,23 @@ const LandingPageReasonsSection = ({ reasonsRef, scrollToServices,scrollToFaqs }
 
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+                    animate={isInView ? { opacity: 1, y: 0 } :{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
                     className="z-40 w-full max-w-[90%] flex flex-col md:flex-row md:justify-between md:items-center space-y-4"
                 >
                     <h2 className="text-3xl md:text-4xl font-extrabold text-white text-left">
                         Why Choose Us?
                     </h2>
-                    <p className="text-sm md:text-xl font-light text-white text-left">
-                        &#34; Choosing us means choosing excellence. We don’t just meet expectations—we exceed them. &#34;
+                    <p  className="w-auto md:w-1/2 text-sm md:text-xl font-light text-white text-left md:text-right">
+                        &#34; We don’t just meet expectations—we exceed them. &#34;
                     </p>
                 </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.75 }}
-                    className="w-[90%]   md:overflow-hidden p-5 pb-10 flex border border-white/10 backdrop-blur-2xl rounded-xl scrollbar-hide"
+                    className="w-[90%]   md:overflow-hidden px-2 md:p-5  flex border border-white/10 backdrop-blur-2xl rounded-xl scrollbar-hide"
                 >
                     <ReasonsDisplay data={data} scrollToServices={scrollToServices} scrollToFaqs={scrollToFaqs} />
                 </motion.div>

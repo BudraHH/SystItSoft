@@ -1,5 +1,5 @@
 "use client";
-import { motion, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const ReasonsDisplay = ({ data, scrollToServices, scrollToFaqs }) => {
@@ -56,8 +56,8 @@ const ReasonsDisplay = ({ data, scrollToServices, scrollToFaqs }) => {
 
 
     return (
-        <div ref={scrollRef} className="relative w-full  h-screen overflow-x-auto hide-scrollbar font-sans  lg:px-10">
-            <div ref={ref} className="relative  xl:w-11/12  pb-10">
+        <div ref={scrollRef} className="relative w-full  h-screen overflow-x-auto hide-scrollbar font-sans  lg:px-10 ">
+            <div ref={ref} className="absolute  xl:w-11/12  pb-10">
                 {data.map((item, index) => (
                     <div key={index} className="flex flex-col space-y-5 md:space-y-0 md:flex-row md:justify-start gap-0 md:gap-5 pt-10 md:pt-16 xl:py-12">
                         <div className="px-2 md:px-0 md:sticky md:top-16 lg:top-12 flex flex-row items-center md:justify-between md:items-start z-40 md:self-start w-full md:w-2/5 space-x-2 md:space-x-5">
@@ -84,16 +84,13 @@ const ReasonsDisplay = ({ data, scrollToServices, scrollToFaqs }) => {
                         </div>
                     </div>
                 ))}
-                <div className="h-64"></div>
-
-                {/* Motion div height increases dynamically with scroll progress */}
                 <div
                     className={`absolute left-5 top-0 w-[0.5px] md:w-[2px] bg-primary h-full`}>
                     <div
                         className={`absolute inset-x-0 top-0 md:w-1 bg-gradient-to-b from-primary to-textPrimary rounded-full`}
                         style={{
                             height: `${scrollProgress}%`,
-                            boxShadow: `0px 0px 10px teal, 0px 0px 20px cyan`, // Added glow effect
+                            boxShadow: `0px 0px 10px teal, 0px 0px 20px cyan`,
                         }}
                     />
                 </div>
