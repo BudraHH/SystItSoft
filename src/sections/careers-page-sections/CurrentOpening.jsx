@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import {FaChevronDown, FaChevronUp} from "react-icons/fa";
 import {CiSearch} from "react-icons/ci";
 
-const CareerPageCurrentOpeningSection = () => {
+const CurrentOpening = () => {
     const [showJobBrief, setShowJobBrief] = useState(null);
     const ref = useRef(null);
     const isInView = useInView(ref, { once: false, amount: 0.5 });
@@ -78,7 +78,7 @@ const CareerPageCurrentOpeningSection = () => {
                         </div>
                     </div>
 
-                        <div className={`w-full lg:w-1/3 flex flex-row items-center justify-between lg:justify-center gap-1 md:gap-5`}>
+                        <div className={`w-full lg:w-1/3 flex flex-row items-center justify-between lg:justify-center gap-4 md:gap-5`}>
                             {/* Job Type Select */}
                             <select value={selectType}
                                     onChange={(e) => setSelectType(e.target.value)}
@@ -190,4 +190,4 @@ const CareerPageCurrentOpeningSection = () => {
         </section>
     )
 }
-export default CareerPageCurrentOpeningSection;
+export default CurrentOpening;

@@ -2,45 +2,42 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 
-const CareersHeroSection = ({scrollToReasons}) => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, amount: 0.5 });
+const CareersHeroSection = ({heroRef, scrollToCultures}) => {
+    const sectionRef = heroRef || useRef(null);
+    const isInView = useInView(sectionRef, { once: false, amount: 0.5 });
 
 
 
     return (
-        <section
-            className="relative z-20 w-full h-[100vh] py-22 md:py-28 flex  items-center justify-start "
-            ref={ref}
-        >
+        <section ref={sectionRef} className="relative pt-20 lg:h-screen flex justify-center items-center">
+            <motion.section
+                initial={{ scale: 1.2, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                className="relative z-20 w-full h-[70vh] lg:h-[80vh]  flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-primary to-primary-10 backdrop-blur-3xl rounded-3xl shadow-2xl"
+            >
+                <div className="absolute inset-0 w-full h-full bg-[radial-gradient(circle,rgba(0,18,90,0.2)_0%,rgba(0,13,30,0.9)_100%)] backdrop-blur-2xl opacity-60 pointer-events-none" />
+                <div className="absolute inset-0 bg-primary opacity-50 pointer-events-none" />
 
-        <div className={` h-full w-full md:w-5/6 lg:w-full flex flex-col justify-center items-start `}>
-            <div className={`w-full lg:w-4/5 h-auto`}>
-                <motion.h1
-                    initial={{opacity: 0, y:50, }}
-                    animate={isInView ? {opacity: 1, y:0} : {opacity: 0, y:50}}
-                    transition={{duration: 0.5, ease: "easeIn",delay: 0.5}}
-                    className={`text-textHeading text-4xl md:text-4xl lg:text-5xl xl:text-7xl  font-semibold `}>
-                    Explore Exciting Opportunities at <strong className={`font-extrabold`}>SysItSoft</strong>
-                </motion.h1>
-            </div>
-            <div className={`w-11/12 mt-4 mb-2 md:mt-6 md:mb-3 lg:mt-8 lg:mb-4 xl:mt-12 xl:mb-6`}>
-                <motion.h6
-                    initial={{opacity: 0, y:100,}}
-                    animate={isInView ? {opacity: 1, y:0} : {opacity: 0, y:50}}
-                    transition={{duration: 0.5, ease: "easeIn",delay: 0.75}}
-                    className={`text-textLight text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-normal `}>
-                    We believe in fostering a dynamic and collaborative work environment that empowers our team to create digital excellence.
-                </motion.h6>
-            </div>
-            <motion.p
-                initial={{opacity: 0, y:50}}
-                animate={isInView ? {opacity: 1, y:0} : {opacity: 0, y:50}}
-                transition={{duration: 0.5, ease: "easeIn",delay: 1}}
-                className={`text-textMuted text-xs md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl font-light`}>
-                Join us on this journey of creativity, growth, and meaningful impact.
-            </motion.p>
-        </div>
+
+                <div className="relative z-10 container mx-auto text-center p-5">
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight text-white">
+                        Innovate. Systemize. Thrive.
+                    </h1>
+                    <h2 className="text-lg md:text-xl lg:text-2xl mb-8 opacity-80 text-textLight">
+                        Be part of a dynamic, R&D-driven team solving complex industrial challenges through cutting-edge technology. Shape the future with us.
+                    </h2>
+                    <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                        <button className="bg-white text-indigo-800 font-semibold  text-sm md:text-lg py-3 md:px-8 rounded-full hover:bg-gray-100 transition-colors duration-300">
+                            View Open Positions
+                        </button>
+                        <button className="bg-blue-900 hover:bg-blue-800 text-white font-semibold text-sm md:text-lg py-3 md:px-8 rounded-full transition-colors duration-300">
+                            Apply Now
+                        </button>
+                    </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-20 md:h-24 bg-gradient-to-t from-transparent via-textAccent to-textPrimary"></div>
+            </motion.section>
         </section>
     );
 };

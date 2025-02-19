@@ -193,6 +193,40 @@ export const jobDescriptionContent = {
     }
 };
 
+export const benefitsAndPerks = [
+    {
+        title: 'Challenging Projects',
+        description: 'Work on cutting-edge R&D projects that have a real impact on industries.',
+        icon: '🚀', // You can replace with actual icons or SVG components
+    },
+    {
+        title: 'Professional Growth',
+        description: 'Opportunities for continuous learning, training, and career advancement.',
+        icon: '📈',
+    },
+    {
+        title: 'Flexible Work Environment',
+        description: 'We value work-life balance and offer flexible work arrangements.',
+        icon: '🏠',
+    },
+    {
+        title: 'Competitive Compensation',
+        description: 'We offer competitive salaries and comprehensive benefits packages.',
+        icon: '💰',
+    },
+    {
+        title: 'Innovative Culture',
+        description: 'Be part of a team that encourages creativity and out-of-the-box thinking.',
+        icon: '💡',
+    },
+    {
+        title: 'Impactful Work',
+        description: 'Contribute to solutions that reduce resource wastage and promote efficiency.',
+        icon: '🌍',
+    },
+
+];
+
 export const careerReasons = [
     {
         title: "Work on Cutting-Edge & Innovative Projects",
@@ -376,5 +410,39 @@ export const ourValues = [
     {
         title: "Collaboration and Teamwork",
         description: "We believe in the power of working together to achieve shared goals.",
+    },
+];
+
+
+export const culturalValues = [
+    {
+        title: 'Innovation',
+        description: 'We\'re passionate about pushing the boundaries of technology to solve real-world problems.',
+        textColor: 'text-textAccent',
+    },
+    {
+        title: 'Accountability',
+        description: 'We value transparency and take ownership of our work.',
+        textColor: 'text-gray-700',
+    },
+    {
+        title: 'Collaboration',
+        description: 'We foster a supportive environment where teamwork and knowledge-sharing are paramount.',
+        textColor: 'text-gray-700',
+    },
+    {
+        title: 'Growth',
+        description: 'We\'re committed to the professional development of our team members.',
+        textColor: 'text-gray-700',
+    },
+    {
+        title: 'Impact',
+        description: 'We strive to make a positive difference in the world through our technological solutions.',
+        textColor: 'text-gray-700',
+    },
+    {
+        title: 'Customer Focus',
+        description: 'We prioritize understanding and meeting our customers\' needs with excellence.',
+        textColor: 'text-gray-700',
     },
 ];

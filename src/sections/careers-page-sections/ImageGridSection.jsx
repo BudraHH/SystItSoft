@@ -48,8 +48,8 @@ const BentoGridItem = forwardRef(({ className, title, description, header, isInV
         <motion.div
             ref={ref}  // 🔥 Attach the ref here
             initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.2 + 0.5 }} // 🔥 Delay animation
+            animate={isInView && { opacity: 1, y: 0 } }
+            transition={{ duration: 0.2, ease: "easeOut", delay: index * 0.2 + 0.2 }} // 🔥 Delay animation
             className={cn(
                 "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col space-y-4",
                 className
@@ -69,22 +69,22 @@ const BentoGridItem = forwardRef(({ className, title, description, header, isInV
 });
 
 // **Fix: Move useRef() outside map()**
-const CareersImageGridSection = () => {
+const ImageGridSection = () => {
     const ref = useRef(null); // ✅ Ref is created here
     const isInView = useInView(ref, { triggerOnce: true, amount: 0.1 });
     return (
-        <section className="relative z-20 w-full  py-10 flex justify-center items-center mb-10">
+        <section className="relative z-20 w-full  flex justify-center items-center ">
             <motion.div
                 ref={ref}
                 initial={{ opacity: 0, y: 100 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                animate={isInView && { opacity: 1, y: 0 }}
                 transition={{ duration:0.5, ease:"easeIn",delay: 0.25 }}
-                className={`p-4 md:p-10 lg:p-14 xl:p-16 border border-tertiary bg-primary/40 backdrop-blur-5xl shadow-md shadow-textLink
-             rounded-xl`}>
+                className={`relative p-4 md:p-5 lg:p-5 border border-white/10  rounded-2xl bg-primary/10 backdrop-blur-
+            `}>
                 <BentoGrid className="w-full lg:max-w-4xl mx-auto md:auto-rows-[20rem] xl:auto-rows-[25rem]">
                     {items.map((item, i) => {
                         const cardRef = useRef(null); // ✅ Ref is created here
-                        const cardInView = useInView(cardRef, { triggerOnce: true, amount: 0.5 });
+                        const cardInView = useInView(cardRef, { triggerOnce: true, amount: 0.2 });
 
                         return (
                             <BentoGridItem
@@ -100,9 +100,11 @@ const CareersImageGridSection = () => {
                         );
                     })}
                 </BentoGrid>
+
             </motion.div>
+            {/*<div className={`absolute -z-2 bg-white w-full h-1`}></div>*/}
         </section>
     );
 };
 
-export default CareersImageGridSection;
+export default ImageGridSection;

@@ -3,7 +3,7 @@ import {useRef, useCallback, useEffect} from "react";
 import AboutPageHeroSection from "../sections/about-page-sections/AboutPageHeroSection.jsx";
 import DescriptionSection from "../sections/about-page-sections/DescriptionSection.jsx";
 import OurValues from "../sections/about-page-sections/OurValues.jsx";
-import ContactFormSection from "../sections/landing-page-sections/ContactFormSection.jsx";
+import ContactFormSection from "../sections/about-page-sections/ContactFormSection.jsx";
 
 const AboutPage = () => {
     const heroRef = useRef(null);

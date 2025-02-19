@@ -1,12 +1,18 @@
 import CareersHeroSection from "../sections/careers-page-sections/CareersHeroSection.jsx";
-import CareersReasonSection from "../sections/careers-page-sections/CareersReasonSection.jsx";
-import CareersJobListSection from "../sections/careers-page-sections/JobListSection.jsx";
+import PerksAndBenefits from "../sections/careers-page-sections/PerksAndBenefits.jsx";
 import {useRef} from "react";
-import CareersImageGridSection from "../sections/careers-page-sections/CareersImageGridSection.jsx";
-import CareerPageCurrentOpeningSection from "../sections/careers-page-sections/CareerPageCurrentOpeningSection.jsx";
+import ImageGridSection from "../sections/careers-page-sections/ImageGridSection.jsx";
+import CurrentOpening from "../sections/careers-page-sections/CurrentOpening.jsx";
+import CompanyCulture from "../sections/careers-page-sections/CompanyCulture.jsx";
 
 const CareersPage = () => {
+    const heroRef = useRef(null);
+    const cultureRef = useRef(null);
     const reasonsRef = useRef(null);
+
+    const scrollToCultures = () => {
+        cultureRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
     const scrollToReasons = () => {
         reasonsRef.current?.scrollIntoView({ behavior: "smooth" });
     }
@@ -18,11 +24,12 @@ const CareersPage = () => {
     return (
         <div className={`flex flex-col px-8 sm:px-10 md:px-16 lg:px-22 `}
              aria-label="CareersPage">
-            <CareersHeroSection scrollToReasons={scrollToReasons} />
-            <CareersImageGridSection/>
-            <CareersReasonSection reasonsRef={reasonsRef} scrollToJobListing={scrollToJobListing} />
+            <CareersHeroSection heroRef={heroRef} scrollToCultures={scrollToCultures} />
+            <ImageGridSection/>
+            <CompanyCulture cultureRef={cultureRef} />
+            <PerksAndBenefits reasonsRef={reasonsRef} scrollToJobListing={scrollToJobListing} />
             {/*<CareersJobListSection jobListRef={jobListRef} />*/}
-            <CareerPageCurrentOpeningSection/>
+            <CurrentOpening/>
 
         </div>
     );
