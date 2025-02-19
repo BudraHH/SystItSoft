@@ -1,8 +1,3 @@
-import missionImage from "../assets/missionImage.png"
-import purposeImage from "../assets/purposeImage.png"
-import storyImage from "../assets/storyImage.png"
-
-
 
 
 // src/utils/constants.js
