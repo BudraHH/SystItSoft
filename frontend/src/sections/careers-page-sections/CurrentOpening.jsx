@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import {FaChevronDown, FaChevronUp} from "react-icons/fa";
 import {CiSearch} from "react-icons/ci";
 
-const CurrentOpening = () => {
+const CurrentOpening = ({currentOpeningsRef}) => {
     const [showJobBrief, setShowJobBrief] = useState(null);
     const ref = useRef(null);
     const isInView = useInView(ref, { once: false, amount: 0.5 });
@@ -28,6 +28,7 @@ const CurrentOpening = () => {
 
     return (
         <section
+            ref={currentOpeningsRef}
             className="min-h-screen ">
 
             <motion.section

@@ -5,7 +5,7 @@ export const navLinks = [
     { id: 1, key: "about-us", ref: "/about-us", label: "about us" },
     { id: 2, key: "careers", ref: "/careers", label: "careers" },
     { id: 3, key: "faqs", ref: "/", label: "faqs", hash: "#faqs" }, // Added hash
-    { id: 4, key: "contact-us", ref: "/about-us", label: "contact us", hash: "#contact-us" },
+    { id: 4, key: "contact-us", ref: "about-us", label: "contact us", hash: "#contact-us" },
 ];
 
 export const additionalNavLinks = [
@@ -59,36 +59,6 @@ export const services = [
     },
 ];
 
-
-export const aboutUsDescription = [
-    {
-        title: "Our Mission",
-        image: missionImage,
-        description: [
-            "We empower individuals and organizations by fostering clarity, enhancing efficiency, and driving success. Our structured workflows align tasks with a greater purpose.",
-            "By emphasizing organization, we create strong foundations where goals are clear, processes are streamlined, and productivity is maximized.",
-            "Through innovation, we enable seamless adaptation to evolving needs. Success is not just about milestones but about nurturing progress, fostering collaboration, and celebrating growth."
-        ],
-    },
-    {
-        title: "Our Purpose",
-        image: purposeImage,
-        description: [
-            "We believe technology should be accessible to all and serve as a tool for positive impact. Our solutions bridge gaps, create opportunities, and improve lives through innovation.",
-            "We design scalable, efficient, and user-friendly systems that empower individuals and organizations to reach their full potential.",
-            "At the heart of our purpose is sustainability and social responsibility. We strive to create long-term value, support ethical practices, and inspire meaningful change."
-        ],
-    },
-    {
-        title: "Our Story",
-        image: storyImage,
-        description: [
-            "Our journey began with a spark of curiosity and a dream to make a difference. In a small garage, a group of passionate innovators came together to build something impactful.",
-            "Their first product, born from perseverance and teamwork, was met with overwhelming support, turning a simple idea into a thriving enterprise.",
-            "Today, that spirit of innovation and resilience continues to drive us. Our story is a testament to the power of dreams, hard work, and the belief that together, we can achieve the extraordinary."
-        ],
-    }
-];
 
 
 export const jobListings = [

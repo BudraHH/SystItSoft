@@ -14,11 +14,17 @@ const LandingPage = () => {
 
 
     useEffect(() => {
-        if (location.hash === "#faqs" && faqsRef.current) {
-            faqsRef.current.scrollIntoView({ behavior: "smooth" });
-        }
-    }, [location]);
+        const handleHashScroll = () => {
+            if (location.hash === "#faqs" && faqsRef.current) {
+                faqsRef.current.scrollIntoView({ behavior: "smooth" });
+            }
+        };
 
+        // Delay the scroll to ensure the component is fully rendered
+        const delay = setTimeout(handleHashScroll, 100); // Adjust delay as needed
+
+        return () => clearTimeout(delay); // Cleanup
+    }, [location]);
 
     const scrollToHero = () => heroRef.current?.scrollIntoView({ behavior: "smooth" });
     const scrollToCapabilities = () => capabilitiesRef.current?.scrollIntoView({ behavior: "smooth" });

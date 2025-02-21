@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 
-const CareersHeroSection = ({heroRef, scrollToCultures}) => {
+const CareersHeroSection = ({heroRef, scrollToImageGrid, scrollToCurrentOpenings}) => {
     const sectionRef = heroRef || useRef(null);
     const isInView = useInView(sectionRef, { once: false, amount: 0.5 });
 
@@ -28,11 +28,16 @@ const CareersHeroSection = ({heroRef, scrollToCultures}) => {
                         Be part of a dynamic, R&D-driven team solving complex industrial challenges through cutting-edge technology. Shape the future with us.
                     </h2>
                     <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
-                        <button className="bg-white text-indigo-800 font-semibold  text-sm md:text-lg py-3 md:px-8 rounded-full hover:bg-gray-100 transition-colors duration-300">
-                            View Open Positions
+
+                        <button
+                            onClick={scrollToImageGrid}
+                            className="bg-blue-900 hover:bg-blue-800 text-white font-semibold text-sm md:text-lg py-3 md:px-8 rounded-full transition-colors duration-300">
+                            Explore More
                         </button>
-                        <button className="bg-blue-900 hover:bg-blue-800 text-white font-semibold text-sm md:text-lg py-3 md:px-8 rounded-full transition-colors duration-300">
-                            Apply Now
+                        <button
+                            onClick={scrollToCurrentOpenings}
+                            className="bg-white text-indigo-800 font-semibold  text-sm md:text-lg py-3 md:px-8 rounded-full hover:bg-gray-100 transition-colors duration-300">
+                            View Open Positions
                         </button>
                     </div>
                 </div>

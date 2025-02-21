@@ -30,7 +30,7 @@ const Navbar = ({
                             handleMenuClick();
                         }
                         if (hash) {
-                            navigate(`/${ref}/${hash}`); // Navigate with hash
+                            navigate(`${ref === "/" ? "" : `${ref}`}/${hash}`); // Navigate with hash
                         }
 
                     }}

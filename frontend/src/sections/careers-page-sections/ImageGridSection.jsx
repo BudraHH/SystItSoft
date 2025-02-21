@@ -1,6 +1,7 @@
 import { cn } from "../../lib/utils";
 import { motion, useInView } from "framer-motion";
 import { useRef, forwardRef } from "react";
+import PropTypes from 'prop-types';
 
 // Skeleton Placeholder
 const Skeleton = () => (
@@ -69,13 +70,17 @@ const BentoGridItem = forwardRef(({ className, title, description, header, isInV
 });
 
 // **Fix: Move useRef() outside map()**
-const ImageGridSection = () => {
-    const ref = useRef(null); // ✅ Ref is created here
-    const isInView = useInView(ref, { triggerOnce: true, amount: 0.1 });
+const ImageGridSection = ({imageGridRef}) => {
+    const sectionRef = useRef(null); // ✅ Conditional ref assignment
+    const isInView = useInView(sectionRef, { triggerOnce: true, amount: 0.1 });
+
     return (
-        <section className="relative z-20 w-full  flex justify-center items-center ">
+        <section
+            ref={imageGridRef}
+            className="relative z-20 w-full flex justify-center items-center"
+        >
             <motion.div
-                ref={ref}
+                ref={sectionRef}
                 initial={{ opacity: 0, y: 100 }}
                 animate={isInView && { opacity: 1, y: 0 }}
                 transition={{ duration:0.5, ease:"easeIn",delay: 0.25 }}
@@ -108,3 +113,7 @@ const ImageGridSection = () => {
 };
 
 export default ImageGridSection;
+
+ImageGridSection.propTypes = {
+    imageGridRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+};

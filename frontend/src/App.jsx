@@ -1,6 +1,6 @@
 "use client";
 import { Routes, Route } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {useEffect} from "react";
 
 import Header from "./sections/Header.jsx";
@@ -10,6 +10,21 @@ import LandingPage from "./pages/LandingPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import CareersPage from "./pages/CareersPage.jsx";
 import ApplyPage from "./pages/ApplyPage.jsx";
+
+
+const RemoveTrailingSlash = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!location.hash){
+        if (location.pathname !== '/' && location.pathname.endsWith('/')) {
+            navigate(location.pathname.slice(0, -1), { replace: true });
+        }}
+    }, [location, navigate]);
+
+    return null;
+};
 
 
 function App() {
@@ -25,6 +40,7 @@ function App() {
 
     return (
         <div className="relative  overflow-hidden w-[100vw] bg-gradient-to-r from-dark via-primary to-dark">
+            <RemoveTrailingSlash/>
             {!isApplyPage && <Header />}
 
             <Routes>

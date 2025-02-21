@@ -4,19 +4,27 @@ import AboutPageHeroSection from "../sections/about-page-sections/AboutPageHeroS
 import DescriptionSection from "../sections/about-page-sections/DescriptionSection.jsx";
 import OurValues from "../sections/about-page-sections/OurValues.jsx";
 import ContactFormSection from "../sections/about-page-sections/ContactFormSection.jsx";
+import {useLocation} from "react-router-dom";
 
 const AboutPage = () => {
     const heroRef = useRef(null);
     const descriptionsRef = useRef(null);
     const valuesRef = useRef(null);
     const contactFormRef = useRef(null);
+    const location = useLocation();
 
+     useEffect(() => {
+        const handleHashScroll = () => {
+            if (location.hash === '#contact-us' && contactFormRef.current) {
+                contactFormRef.current.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
 
-    useEffect(() => {
-        if (location.hash === '#contact-us' && contactFormRef.current ){
-            contactFormRef.current?.scrollIntoView({ behavior: "smooth" });
-        }
-    },[location]);
+        const delay = setTimeout(handleHashScroll, 100); // Adjust delay as needed
+
+        return () => clearTimeout(delay); // Cleanup
+    }, [location]);
+
 
     // Memoize scroll functions to prevent unnecessary re-renders of child components
     const scrollToHero = useCallback(() => {

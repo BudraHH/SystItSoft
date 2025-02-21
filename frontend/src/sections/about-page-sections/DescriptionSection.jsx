@@ -1,10 +1,10 @@
 "use client";
-import { useRef, useState, useEffect,memo } from "react";
+import { useRef, forwardRef, useState, useEffect,memo } from "react";
 import { motion, useInView } from "framer-motion";
 import {descriptionCards} from "../../utils/constants.js";
 
 
-const Card = memo(({ data, ref }) => {
+const Card = forwardRef(({ data }, ref) => {
     return (
         <motion.div
             ref={ref}
